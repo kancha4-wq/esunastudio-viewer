@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esunastudio-viewer.pages.dev/sitemap.xml

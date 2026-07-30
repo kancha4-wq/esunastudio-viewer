@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>同人書籍ビューア｜esunaStudio — 読む本も、聴く本も。これひとつ。</title>
+<meta name="description" content="漫画・EPUB・PDF に対応した蔵書ビューア（広告なし）。自分で買った同人漫画・同人小説・電子書籍を、ひとつの本棚ですっきり管理。EPUB はバックグラウンドで“聴く”朗読にも対応。Android版を開発中——最新情報はXで発信中。">
+<link rel="canonical" href="https://esunastudio-viewer.pages.dev/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="えすなむら">
+<meta property="og:title" content="同人書籍ビューア｜読む本も、聴く本も。これひとつ。">
+<meta property="og:description" content="漫画・EPUB・PDF 対応の蔵書ビューア（広告なし）。買った本を、自分の端末ですっきり管理。EPUB は“聴く”朗読にも対応。Android版を開発中——最新情報はXで。">
+<meta property="og:url" content="https://esunastudio-viewer.pages.dev/">
+<meta property="og:image" content="https://esunastudio-viewer.pages.dev/assets/ogp-android.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="同人書籍ビューア｜読む本も、聴く本も。これひとつ。">
+<meta name="twitter:description" content="漫画・EPUB・PDF 対応の蔵書ビューア（広告なし）。買った本を、自分の端末ですっきり管理。EPUB は“聴く”朗読にも対応。Android版を開発中——最新情報はXで。">
+<meta name="twitter:image" content="https://esunastudio-viewer.pages.dev/assets/ogp-android.jpg">
+<meta name="twitter:site" content="@esuna_4649">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/app-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/app-icon-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "同人書籍ビューア",
+  "applicationCategory": "BookApplication",
+  "operatingSystem": "Android",
+  "description": "漫画・EPUB・PDF に対応した広告なしの蔵書ビューア。買った本を自分の端末で管理でき、EPUB は読み上げ（朗読）にも対応。",
+  "author": { "@type": "Organization", "name": "esunaStudio" },
+  "url": "https://esunastudio-viewer.pages.dev/",
+  "image": "https://esunastudio-viewer.pages.dev/assets/ogp-android.jpg",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+}
+</script>
+<style>
+  :root{
+    --ink:#23262b;
+    --sub:#5b6068;
+    --muted:#8b9099;
+    --bg:#fbfaf7;
+    --card:#ffffff;
+    --line:#e9e6df;
+    --epub:#e8913a;   /* EPUB=オレンジ */
+    --manga:#3b78b8;  /* 漫画=ブルー */
+    --accent:#3b78b8;
+    --accent-ink:#2a5a90;
+    --hold:#b08a4a;
+    --radius:16px;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  h1,h2,h3{line-height:1.4;letter-spacing:.01em}
+  h2{font-size:24px;margin:0 0 8px;font-weight:800}
+  h3.sub{font-size:19px;font-weight:800;margin:30px 0 6px;padding-top:8px}
+  .lead{color:var(--sub);font-size:15.5px;margin:0 0 22px}
+  p{margin:0 0 14px}
+  .small{font-size:13px;color:var(--muted)}
+  .soon{display:inline-block;background:#fdf0e2;border:1px solid #f0d3ac;color:#b56f1f;
+    font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 16px;letter-spacing:.02em}
+  .privacy-note{
+    display:flex;align-items:center;gap:10px;
+    max-width:520px;margin:30px auto 2px;padding:11px 16px;
+    background:#eaf6ee;border:1px solid #a9d7ba;border-radius:12px;
+    color:#1f7a44;font-size:13.5px;font-weight:700;line-height:1.6;text-align:left;
+    box-shadow:0 3px 11px rgba(31,122,68,.12);
+  }
+  .privacy-note .pn-ico{font-size:19px;flex:0 0 auto;line-height:1}
+  .privacy-note b{color:#125f2c;font-weight:800}
+
+  /* hero */
+  .hero{
+    background:linear-gradient(180deg,#fff 0%,#f4f1ea 100%);
+    border-bottom:1px solid var(--line);
+    padding:72px 0 60px;
+    text-align:center;
+  }
+  .hero .badge{
+    display:inline-block;font-size:12px;letter-spacing:.12em;
+    color:var(--accent-ink);background:#eaf1f8;border:1px solid #d6e3f0;
+    padding:5px 12px;border-radius:999px;margin-bottom:20px;
+  }
+  .hero h1{font-size:34px;font-weight:900;margin:0 0 16px;letter-spacing:.02em}
+  .hero p{color:var(--sub);font-size:16px;max-width:560px;margin:0 auto 10px}
+  .cta{
+    display:inline-block;margin-top:26px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:700;font-size:16px;padding:14px 34px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(59,120,184,.28);transition:.15s;
+  }
+  .cta:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(59,120,184,.34)}
+  .cta.ghost{background:#fff;color:var(--accent-ink);border:1.5px solid #cddcea;box-shadow:none}
+  .cta.x{background:#000;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+  .cta.x:hover{box-shadow:0 9px 22px rgba(0,0,0,.30)}
+
+  /* feature chips */
+  .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  .chip{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px;display:flex;gap:12px;align-items:flex-start;
+  }
+  .chip .ico{font-size:22px;line-height:1.2}
+  .chip b{display:block;font-size:15px;margin-bottom:2px}
+  .chip span{font-size:13px;color:var(--sub)}
+
+  /* lists */
+  ul.feat{list-style:none;padding:0;margin:6px 0 0}
+  ul.feat li{position:relative;padding:9px 0 9px 26px;border-bottom:1px dashed var(--line);font-size:15px}
+  ul.feat li:last-child{border-bottom:0}
+  ul.feat li::before{content:"";position:absolute;left:4px;top:17px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  ul.feat li b{font-weight:700}
+  ul.feat li small{color:var(--sub)}
+
+  /* SS placeholder */
+  .ss{
+    margin:18px 0;border:2px dashed #cfcabd;border-radius:12px;background:#f3f1ea;
+    min-height:200px;display:flex;align-items:center;justify-content:center;
+    color:#a39b8a;font-size:13px;text-align:center;padding:20px;
+  }
+  .ss.tall{min-height:300px}
+  .ss .lbl{display:block}
+  .ss .lbl b{color:#8c8470}
+
+  /* 実機スクショ */
+  .ss-img{display:block;width:100%;max-width:330px;margin:20px auto 6px;
+    border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(40,60,90,.13)}
+  .ss-cap{font-size:12px;color:var(--muted);text-align:center;margin:0 0 4px}
+  .ss-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:20px 0 6px}
+  .ss-row .ss-img{margin:0;max-width:236px}
+
+  /* ヒーロー2画面横並び（漫画ビューア＋書庫ビューア）＝Pixel風フレーム */
+  .hero-duo{display:flex;gap:22px;justify-content:center;align-items:flex-end;margin:36px auto 6px;max-width:560px}
+  .phone-frame{width:47%;max-width:246px;background:#1b1d21;border-radius:30px;padding:7px;
+    box-shadow:0 18px 40px rgba(40,60,90,.22), inset 0 0 0 1.5px #2c2f35}
+  .hero-duo .phone-frame:first-child{transform:rotate(-2.5deg)}
+  .hero-duo .phone-frame:last-child{transform:rotate(2.5deg)}
+  .phone-screen{border-radius:24px;overflow:hidden;background:#000;display:block}
+  .phone-notch{height:18px;background:#000;position:relative}
+  .phone-notch::after{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);
+    width:7px;height:7px;border-radius:50%;background:#2a2d31}
+  .phone-screen img{display:block;width:100%;border:0}
+  /* ヒーローの2枚スマホは縦横比を揃えて高さを統一(右EPUBが縦長で不揃い=中央ズレに見えるのを解消) */
+  .hero-duo .phone-screen img{aspect-ratio:1080 / 2102;object-fit:cover}
+
+  /* SS上の吹き出し注釈（チェックボックス→説明） */
+  .cap-wrap{position:relative;display:block;width:100%;max-width:330px;margin:20px auto 6px}
+  .cap-wrap > img{display:block;width:100%;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(40,60,90,.13)}
+  .cap-ring{position:absolute;border:3px solid #e8590c;border-radius:5px;box-shadow:0 0 0 4px rgba(232,89,12,.22);pointer-events:none}
+  .cap-ring.vol{border-color:#2f6fed;box-shadow:0 0 0 4px rgba(47,111,237,.22)}
+  .cap-bubble{position:absolute;background:#fff;border:1.6px solid #e8913a;border-radius:12px;
+    padding:9px 12px;font-size:11.5px;line-height:1.55;color:var(--ink);font-weight:700;
+    box-shadow:0 10px 24px rgba(40,60,90,.20)}
+  .cap-bubble::before{content:"";position:absolute;top:-9px;left:7px;width:15px;height:15px;
+    background:#fff;border-left:1.6px solid #e8913a;border-top:1.6px solid #e8913a;transform:rotate(45deg)}
+  .cap-bubble2{position:absolute;background:#fff;border:1.6px solid #e8913a;border-radius:12px;
+    padding:9px 12px;font-size:11.5px;line-height:1.55;color:var(--ink);font-weight:700;
+    box-shadow:0 10px 24px rgba(40,60,90,.20)}
+  .cap-bubble2::after{content:"";position:absolute;right:-9px;top:22px;width:15px;height:15px;
+    background:#fff;border-right:1.6px solid #e8913a;border-top:1.6px solid #e8913a;transform:rotate(45deg)}
+  /* 注釈ステージ：スマホ枠を中央、吹き出しは外側 */
+  .anno-stage{position:relative;max-width:720px;margin:22px auto 8px}
+  .anno-frame{position:relative;background:#1b1d21;border-radius:28px;padding:8px;width:268px;margin:0 auto;
+    box-shadow:0 18px 42px rgba(40,60,90,.22), inset 0 0 0 1.5px #2c2f35}
+  .anno-frame .cap-wrap{margin:0;max-width:none;width:100%}
+  .anno-frame .cap-wrap > img{border-radius:21px}
+  .vol-key{position:absolute;right:-2px;width:5px;border-radius:3px;background:#6a6e76;
+    box-shadow:0 0 0 3px rgba(232,89,12,.5);z-index:6}
+  .out-bubble{position:absolute;width:206px;height:86px;display:flex;align-items:center;
+    background:#fff;border:1.6px solid #e8913a;border-radius:12px;
+    padding:9px 12px;font-size:12px;line-height:1.55;color:var(--ink);font-weight:700;box-shadow:0 10px 24px rgba(40,60,90,.2);z-index:7}
+  .out-bubble.to-r::after{content:"";position:absolute;right:-9px;top:18px;width:15px;height:15px;
+    background:#fff;border-right:1.6px solid #e8913a;border-top:1.6px solid #e8913a;transform:rotate(45deg)}
+  .out-bubble.to-l::before{content:"";position:absolute;left:-9px;top:18px;width:15px;height:15px;
+    background:#fff;border-left:1.6px solid #e8913a;border-bottom:1.6px solid #e8913a;transform:rotate(45deg)}
+  @media(max-width:620px){
+    .out-bubble{position:static;width:auto;margin:8px 0}
+    .out-bubble.to-r::after,.out-bubble.to-l::before{display:none}
+  }
+
+  /* 表示モード4点グリッド */
+  .mode-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0 6px}
+  .mode-grid figure{margin:0;position:relative}
+  .mode-grid img{display:block;width:100%;border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 16px rgba(40,60,90,.10)}
+  .mode-grid figcaption{font-size:12.5px;color:var(--sub);text-align:center;margin-top:6px;font-weight:700}
+  .mode-grid figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11px;margin-top:1px}
+  .pmode-grid{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:560px){.pmode-grid{grid-template-columns:repeat(3,1fr)}}
+  /* モードの動きを示す矢印オーバーレイ */
+  .m-motion{position:absolute;left:0;right:0;top:0;bottom:18%;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:7px;pointer-events:none;color:#fff}
+  .m-motion .ar{font-size:46px;font-weight:900;line-height:.9;
+    text-shadow:0 2px 8px rgba(0,0,0,.65), 0 0 16px rgba(0,0,0,.5)}
+  .m-motion .lbl{font-size:11px;font-weight:800;background:rgba(20,22,28,.72);
+    padding:3px 10px;border-radius:999px}
+  .m-motion.p{flex-direction:row;justify-content:space-between;padding:0 7%}
+  .m-motion.p .ar{font-size:34px}
+
+  /* 端末（デバイス）枠＋種別バッジ */
+  .dev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0 6px;align-items:start}
+  .dev-card{position:relative;background:#1b1d21;border-radius:16px;padding:8px;box-shadow:0 12px 28px rgba(40,60,90,.20)}
+  .dev-card img{display:block;width:100%;border-radius:10px}
+  .dev-badge{position:absolute;top:15px;left:15px;background:rgba(16,18,24,.86);color:#fff;
+    font-size:12px;font-weight:800;letter-spacing:.05em;padding:5px 12px;border-radius:999px}
+  .dev-cap{font-size:12.5px;color:var(--sub);text-align:center;margin:7px 0 0;font-weight:700}
+
+  /* タブレット枠（縦持ち・ベゼル＋上に内カメラ） */
+  .tab-frame{position:relative;background:#1b1d22;border-radius:24px;padding:14px 12px;
+    box-shadow:0 14px 34px rgba(40,60,90,.22), inset 0 0 0 1.5px #2c2f35}
+  .tab-frame img{display:block;width:100%;border-radius:7px}
+  .tab-frame::after{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);
+    width:6px;height:6px;border-radius:50%;background:#34373d}
+
+  .note{font-size:12.5px;color:var(--hold);background:#fbf4e6;border:1px solid #f0e2c4;
+        border-radius:10px;padding:8px 12px;margin:10px 0}
+
+  /* format tags */
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .tag{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--sub)}
+  .tag.epub{border-color:#f0d3ac;color:#b56f1f;background:#fdf6ec}
+  .tag.manga{border-color:#c4d8ee;color:#2a5a90;background:#eef4fb}
+
+  /* faq */
+  .faq{margin-top:6px}
+  .qa{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px 18px;margin-bottom:12px}
+  .qa .q{font-weight:700;font-size:15px;margin-bottom:6px}
+  .qa .q::before{content:"Q. ";color:var(--accent)}
+  .qa .a{font-size:14px;color:var(--sub)}
+  .qa.hold{border-style:dashed;background:#fbfaf7}
+  .qa.hold .q{color:var(--hold)}
+
+  /* sample / closing */
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-align:center}
+  .closing{background:linear-gradient(180deg,#f4f1ea,#fff);text-align:center}
+  .closing h2{font-size:22px}
+
+  footer{padding:30px 0 50px;text-align:center;color:var(--muted);font-size:12px}
+  .draft{position:fixed;bottom:10px;right:10px;background:#23262b;color:#fff;font-size:11px;
+         padding:5px 10px;border-radius:6px;opacity:.78;z-index:99;letter-spacing:.05em}
+
+  /* fixed header (brand + tabs) */
+  .site-head{position:fixed;top:0;left:0;right:0;z-index:60;
+        background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line);box-shadow:0 3px 14px rgba(40,60,90,.07)}
+  .site-head-brand{display:flex;align-items:baseline;justify-content:center;gap:10px;
+        padding:14px 12px 8px;flex-wrap:wrap}
+  .site-head-brand b{font-size:17px;font-weight:800;letter-spacing:.02em}
+  .site-head-brand span{font-size:12px;color:var(--muted)}
+  .site-head-brand .tagline{flex-basis:100%;text-align:center;font-size:12px;color:var(--sub);margin-top:2px}
+  .site-head-logo{width:34px;height:34px;border-radius:8px;align-self:center;box-shadow:0 2px 6px rgba(40,60,90,.18)}
+  .tabs{display:flex;justify-content:center;flex-wrap:wrap;padding:0 6px}
+  .tab-btn{appearance:none;border:0;background:none;font:inherit;cursor:pointer;
+           padding:11px 18px 11px;font-size:14px;font-weight:800;color:var(--muted);
+           border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s}
+  .tab-btn:hover{color:var(--sub)}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
+  @media(max-width:560px){
+    .hero h1{font-size:27px}
+    .chips{grid-template-columns:1fr}
+    h2{font-size:21px}
+    .site-head-brand{padding:10px 12px 6px}
+    .site-head-brand b{font-size:15px}
+    .site-head-logo{width:30px;height:30px}
+    .tab-btn{padding:10px 11px;font-size:12.5px}
+  }
+</style>
+
+</head>
+<body>
+
+<header class="site-head" id="siteHead">
+  <div class="site-head-brand">
+    <img class="site-head-logo" src="assets/app-icon-192.png" alt="同人書籍ビューア アイコン">
+    <b>同人書籍ビューア</b><span>esunaStudio</span>
+    <span class="tagline">漫画・EPUB・PDF対応の蔵書ビューア（広告なし）</span>
+  </div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="1" type="button">特徴・仕様</button>
+    <button class="tab-btn" data-tab="2" data-analytics-event="viewer_start" data-analytics-link="app-book-viewer" data-analytics-area="app-tabs" type="button">書籍ビューア</button>
+    <button class="tab-btn" data-tab="3" data-analytics-event="viewer_start" data-analytics-link="app-manga-viewer" data-analytics-area="app-tabs" type="button">漫画ビューア</button>
+    <button class="tab-btn" data-tab="4" type="button">公開情報</button>
+  </nav>
+</header>
+
+<div class="tab-panel active" data-panel="1">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <h1>読む本も、聴く本も。これひとつ。</h1>
+    <p>漫画もEPUBも、ひとつの本棚で。ローカルの蔵書を、すっきり整理。</p>
+    <p>EPUBはバックグラウンドで“聴く”こともできます。</p>
+    <p>設定はいりません。開いた、その状態がいちばん読みやすい。</p>
+    <p style="margin:16px auto 6px"><span class="soon">Android版 公開に向けて準備中</span></p>
+    <p style="margin:0 auto 12px;font-weight:700">公開時期やアップデートは、Xでお知らせします。フォローしてお待ちください。</p>
+    <a class="cta" href="https://x.com/esuna_4649" target="_blank" rel="noopener" data-analytics-link="app-follow-x" data-analytics-area="app-hero">最新情報をXでフォロー</a>
+    <a class="cta ghost" href="https://x.com/esuna_4649/status/2066098351804920247" target="_blank" rel="noopener" data-analytics-link="app-progress-x" data-analytics-area="app-hero">開発状況をXで見る</a>
+    <a class="cta x" href="https://x.com/intent/post" rel="noopener" data-analytics-link="app-share-x" data-analytics-area="app-hero" onclick="return shareApp(event)">𝕏 でシェア</a>
+    <div class="hero-duo">
+      <div class="phone-frame"><div class="phone-screen"><div class="phone-notch"></div><img src="assets/manga_panels.jpg" alt="漫画ビューア（コマ割りページ）"></div></div>
+      <div class="phone-frame"><div class="phone-screen"><div class="phone-notch"></div><img src="assets/epub_p7.jpg" alt="EPUB書籍ビューア（縦書き本文）"></div></div>
+    </div>
+    <p class="ss-cap">漫画ビューア（左）とEPUB書籍ビューア（右）。漫画も小説も、<br>これひとつ。</p>
+  </div>
+</header>
+
+<!-- 4つの特徴 -->
+<section>
+  <div class="wrap">
+    <h2>4つで分かる特徴</h2>
+    <div class="chips">
+      <div class="chip"><span class="ico">📚</span><div><b>漫画もEPUBも1アプリ</b><span>形式を気にせず、同じ本棚で</span></div></div>
+      <div class="chip"><span class="ico">🔊</span><div><b>EPUBを“聴く”朗読</b><span>画面を消しても読み上げが続く</span></div></div>
+      <div class="chip"><span class="ico">📖</span><div><b>読みかけが一目で分かる本棚</b><span>どこまで読んだか、ゲージで</span></div></div>
+      <div class="chip"><span class="ico">✋</span><div><b>設定メニューなし</b><span>迷う場所がない。だから、すぐ読める</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 設定しない（冒頭コンセプト） -->
+<section>
+  <div class="wrap">
+    <h2>設定しない。それでも、ちゃんと読める。</h2>
+    <p>たくさんの設定項目も、深いメニュー階層もありません。<b>だから、迷わない。</b>開いたその状態が、もう最適。誰が触っても、同じ分かりやすさです。</p>
+    <p>必要な切り替え——縦読みにする、余白を消す、綴じ方向を変える——は、すべて<b>ワンタップ</b>。「設定する自由」のかわりに、「<b>設定しなくていい気軽さ</b>」を選びました。</p>
+    <div class="anno-stage" style="margin-bottom:72px">
+      <div class="out-bubble to-l" style="right:0;top:5%">表示の切り替えは、ぜんぶ上のバーに。単ページ／見開き・頁/縦/横・綴じ方向・余白カット。</div>
+      <div class="out-bubble to-r" style="left:0;top:86%">巻の移動・ページ送り・サムネイルは、下のバーから。</div>
+      <div class="anno-frame">
+        <div class="cap-wrap">
+          <img src="assets/manga_single.jpg" alt="ビューアの操作バー。すべて画面に表示され、隠れた設定メニューはない">
+          <span class="cap-ring" style="left:1.5%;top:0.8%;width:97%;height:9.6%"></span>
+          <span class="cap-ring" style="left:1.5%;bottom:0.8%;width:97%;height:6.4%"></span>
+        </div>
+      </div>
+    </div>
+    <p class="ss-cap">メニューを探さない。操作はぜんぶ画面に出ています。だから、迷わない。</p>
+  </div>
+</section>
+
+<!-- 対応形式・取り込み -->
+<section>
+  <div class="wrap">
+    <h2>あなたの蔵書を、そのまま</h2>
+    <ul class="feat">
+      <li><b>ファイル形式</b> <small>… ZIP / CBZ、RAR / CBR、7Z、フォルダ、EPUB、PDF</small></li>
+      <li><b>画像形式も幅広く</b> <small>… JPEG・PNG はもちろん、WebP・GIF・BMP・AVIF も表示</small></li>
+      <li><b>取り込み</b> <small>… 端末内のフォルダから。クラウドや同期サービスのフォルダも、端末がフォルダとして扱えるものは選べます</small></li>
+    </ul>
+    <div class="tags">
+      <span class="tag manga">ZIP / CBZ</span><span class="tag manga">RAR / CBR</span><span class="tag manga">7Z</span><span class="tag manga">フォルダ</span>
+      <span class="tag epub">EPUB</span><span class="tag">PDF</span>
+    </div>
+    <div class="tags" style="margin-top:6px">
+      <span class="tag">JPEG</span><span class="tag">PNG</span><span class="tag">WebP</span><span class="tag">GIF</span><span class="tag">BMP</span><span class="tag">AVIF</span>
+    </div>
+    <img class="ss-img" src="assets/lib_import.jpg" alt="フォルダ選択画面。端末のフォルダを選ぶだけで取り込み">
+    <p class="ss-cap">取り込みは、端末のフォルダを選ぶだけ。「このフォルダを使用」でまるごと本棚に</p>
+  </div>
+</section>
+
+<!-- 見やすい本棚 -->
+<section>
+  <div class="wrap">
+    <h2>見やすい本棚</h2>
+    <p class="lead">蔵書が増えても、ごちゃつかない。形式は、枠の色でひと目。</p>
+    <ul class="feat">
+      <li><b>形式が色でひと目</b> <small>… EPUBはオレンジ、漫画はブルー、PDFはグリーンの枠で区別</small></li>
+      <li><b>読みかけゲージ</b> <small>… 続きから、すぐに（読了は「読了 N/M巻」表示）</small></li>
+      <li><b>★お気に入り＆閲覧履歴</b> <small>… ★を付けた本と、最近読んだ本（何ページまで読んだかも）を上部にまとめて表示。ワンタップで続きへ</small></li>
+      <li><b>冊数バッジ</b> <small>… シリーズに何冊あるか、開かなくても</small></li>
+      <li><b>探す・並べる</b> <small>… 検索（タイトル・巻数・パス）、並び替え（タイトル／更新日／巻数）</small></li>
+      <li><b>作品・シリーズ単位</b> <small>… 巻ものもまとめて</small></li>
+      <li><b>消しても戻せる</b> <small>… 削除はいったんゴミ箱へ。あとから書庫に戻せます（まとめて戻すのもOK）</small></li>
+      <li><b>書庫をタブで切り替え</b> <small>… 複数の書庫を分けて、すっきり整理。<b>※複数書庫は、今後アプリ内課金で解除できる予定の機能です（無料版は書庫1つまで）</b></small></li>
+    </ul>
+    <img class="ss-img" src="assets/shelf_history_fav.jpg" alt="本棚：閲覧履歴・お気に入り・色分け枠・読みかけゲージ">
+    <p class="ss-cap">上部に「閲覧履歴」と「お気に入り★」。下は形式の色分け・読みかけゲージ・冊数バッジが一目で</p>
+  </div>
+</section>
+
+<!-- タブレットにも対応 -->
+<section>
+  <div class="wrap">
+    <h2>タブレットにも対応</h2>
+    <p class="lead">メインはスマホですが、タブレットや折りたたみ端末にも対応しています。大きい画面なら、本棚や見開きをそのまま広く表示できます。</p>
+    <ul class="feat">
+      <li>大きい画面では、本棚や見開きを広く表示できます</li>
+      <li>端末の画面回転ロックを尊重します</li>
+      <li>端末の文字サイズを大きくしても、レイアウトは崩れません</li>
+    </ul>
+    <div class="dev-grid">
+      <div>
+        <div class="dev-card"><span class="dev-badge">タブレット</span><img src="assets/tablet_shelf.jpg" alt="タブレットの本棚（広い4列表示）"></div>
+        <p class="dev-cap">本棚を広く一覧</p>
+      </div>
+      <div>
+        <div class="dev-card"><span class="dev-badge">折りたたみ（展開）</span><img src="assets/fold_spread.jpg" alt="折りたたみ展開の漫画見開き"></div>
+        <p class="dev-cap">見開きも大きく</p>
+      </div>
+    </div>
+    <p class="ss-cap">大きい画面なら、本棚や見開きも広く表示できます。</p>
+  </div>
+</section>
+
+<!-- 仕様・料金 -->
+<section>
+  <div class="wrap">
+    <h2>広告なし。仕様も、しっかり。</h2>
+    <p class="lead"><b>広告は一切表示しません。</b>読書のじゃまになるバナーもポップアップもなし。最初から最後まで、気持ちよく読めます。</p>
+    <ul class="feat">
+      <li><b>広告</b> <small>… 一切なし</small></li>
+      <li><b>料金</b> <small>… 無料で使えます（正式版は一部機能をアプリ内課金で解除予定）</small></li>
+      <li><b>対象年齢</b> <small>… 12歳以上</small></li>
+      <li><b>必要なOS</b> <small>… Android 7.0 以上</small></li>
+    </ul>
+    <p class="small" style="margin-top:6px">※無料で使える範囲（制限版でできること）の詳細は「ためす」タブのよくある質問にて。</p>
+  </div>
+</section>
+
+</div><!-- /panel1 -->
+
+<div class="tab-panel" data-panel="2">
+
+<!-- 朗読 -->
+<section>
+  <div class="wrap">
+    <h2>読んで、そのまま聴ける。EPUB朗読</h2>
+    <p class="lead">文字の本は、読むだけのものじゃない。このアプリのEPUBビューアは、本文をそのまま読み上げます。家事をしながら、目を休めながら、移動しながら——画面を見ていなくても物語は進みます。</p>
+    <ul class="feat">
+      <li><b>バックグラウンド再生</b><small style="display:block;margin-top:3px;line-height:1.65">朗読開始ボタン横のチェックを入れるだけ。画面を消しても、他のアプリを開いても朗読は続きます。</small></li>
+      <li><b>読み上げ位置を青枠で追従</b> <small>… いま読んでいる一文がひと目で</small></li>
+      <li><b>声を選べる</b> <small>… 朗読バーの「声」をタップするたびに、読み上げる声を切り替え</small></li>
+      <li><b>読み上げ位置の移動</b> <small>… 上の朗読バーをドラッグで、読み上げる文節を前後に動かせます</small></li>
+      <li><b>音量ボタンの2役</b> <small>… 朗読中は音量調整。朗読を止めているときは、音量ボタンでページを前後に送れます</small></li>
+      <li><b>ページ送りはタップでも</b> <small>… 縦書きは画面の左右、横書きは画面の上下をタップで前後のページへ</small></li>
+    </ul>
+    <div class="anno-stage">
+      <div class="out-bubble to-r" style="left:0;top:11%">この□にチェックで「バックグラウンド再生」ON。画面を消しても朗読が続きます。</div>
+      <div class="out-bubble to-l" style="right:0;top:24%">音量ボタンは2役。朗読中は音量調整、止めるとページ送りに使えます。</div>
+      <div class="out-bubble to-l" style="right:0;top:55%">画面の右側を上下にドラッグでも、読み上げ位置（文節）を移動できます。</div>
+      <div class="anno-frame">
+        <span class="vol-key" style="top:24%;height:11%"></span>
+        <div class="cap-wrap">
+          <img src="assets/epub_p7.jpg" alt="EPUB縦書き本文。朗読バーと操作">
+          <span class="cap-ring" style="left:3.2%;top:13.3%;width:7.8%;height:5.4%"></span>
+          <span class="cap-ring" style="left:73%;top:42%;width:23%;height:34%"></span>
+        </div>
+      </div>
+    </div>
+    <p class="ss-cap">縦書き本文。読み上げ中の一文を青枠で追従</p>
+    <p style="margin-top:18px"><b>そして——どんな表示でも、聴けます。</b><br>単ページも段組みも、縦書きも横書きも。どのレイアウトでも、段組みのまま青枠が追従します。</p>
+    <div class="mode-grid pmode-grid">
+      <figure><img src="assets/pmode_v1.jpg" alt="単ページ・縦書き表示で朗読"><figcaption>単ページ・縦書き</figcaption></figure>
+      <figure><img src="assets/pmode_v2.jpg" alt="縦2段組み表示で朗読"><figcaption>縦2段組み</figcaption></figure>
+      <figure><img src="assets/pmode_h1.jpg" alt="単ページ・横書き表示で朗読"><figcaption>単ページ・横書き</figcaption></figure>
+    </div>
+    <p class="ss-cap">スマホでの表示例（単縦・縦2段・単横）。読み上げ中の一文は、どのレイアウトでも青枠で追従します。</p>
+    <div class="tab-frame" style="max-width:330px;margin:22px auto 6px"><span class="dev-badge" style="top:22px;left:22px">タブレット・縦持ち</span><img src="assets/tablet_yoko2dan.jpg" alt="タブレット縦持ちの横書き2段表示。朗読の青枠追従"></div>
+    <p class="dev-cap">タブレットなら、横書き2段も広々。もちろん段組みのまま青枠が追従します。</p>
+    <div class="note">※横書き2段などの段組みは、タブレットなど大きい画面で映えます。スマートフォンは縦画面で固定です。</div>
+  </div>
+</section>
+
+</div><!-- /panel2 -->
+
+<div class="tab-panel" data-panel="3">
+
+<!-- 漫画表示 -->
+<section>
+  <div class="wrap">
+    <h2>漫画も、好きな読み方で</h2>
+    <p class="lead">紙のように。Webコミックのように。あなたの読み方で。</p>
+    <ul class="feat">
+      <li><b>単ページ（頁）</b> <small>… スマホで1ページずつ、めくって読む</small></li>
+      <li><b>見開き</b> <small>… タブレットや横画面で、紙の見開きそのまま</small></li>
+      <li><b>縦スクロール（縦）</b> <small>… 上から下へ、Webコミックのように流れるように</small></li>
+      <li><b>横スクロール（横）</b> <small>… 横に送って、すっと次のページへ</small></li>
+      <li><b>綴じ方向の切替</b> <small>… 右開き・左開き、作品に合わせて</small></li>
+    </ul>
+    <p style="margin-top:6px">表示モードは上部の <b>頁 / 縦 / 横</b> でワンタップ切り替え。</p>
+    <div class="mode-grid pmode-grid" style="max-width:600px;margin-left:auto;margin-right:auto">
+      <figure>
+        <img src="assets/manga_single.jpg" alt="単ページ表示（コマ割り）">
+        <span class="m-motion p"><span class="ar">❮</span><span class="lbl">タップでめくる</span><span class="ar">❯</span></span>
+        <figcaption>単ページ（頁）<small>1枚ずつ・タップでめくる</small></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_scroll.jpg" alt="縦スクロール表示（コマ割り）">
+        <span class="m-motion"><span class="lbl">縦に流れる</span><span class="ar">↓</span></span>
+        <figcaption>縦スクロール（縦）<small>上から下へ流れる</small></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/manga_horizontal.jpg" alt="横スクロール表示（コマ割り）">
+        <span class="m-motion"><span class="lbl">横に流れる</span><span class="ar">↔</span></span>
+        <figcaption>横スクロール（横）<small>横に送って読む</small></figcaption>
+      </figure>
+    </div>
+    <p class="ss-cap">頁・縦・横の3表示。綴じ方向（右開き・左開き）もワンタップで切り替え</p>
+
+    <h3 class="sub">こだわりの操作</h3>
+    <p class="lead">シンプルな見た目の裏に、片手で快適に読むための操作を仕込んでいます。</p>
+    <ul class="feat">
+      <li><b>ページ送りは左右タップ</b> <small>… 画面の左・右をタップで、前後のページへ</small></li>
+      <li><b>巻の移動は角タップ</b> <small>… 全画面表示で、左下＝次の巻／右下＝前の巻</small></li>
+      <li><b>輝度はドラッグでサッと</b> <small>… 画面の左の縁をなぞって明るさ調整</small></li>
+      <li><b>音量ボタンでもページ送り</b> <small>… 読みながら片手で前後に</small></li>
+      <li><b>縦表示は上下ドラッグでも</b> <small>… 画面を上下になぞってページ送り</small></li>
+    </ul>
+    <div class="anno-stage">
+      <div class="out-bubble to-r" style="left:0;top:40%">画面の左の縁を上下にドラッグで、明るさをサッと調整。</div>
+      <div class="out-bubble to-l" style="right:0;top:24%">音量ボタンでもページを前後に。読みながら片手で送れます。</div>
+      <div class="out-bubble to-l" style="right:0;top:62%">画面を上下にドラッグでも、ページ送り（縦表示）。</div>
+      <div class="anno-frame">
+        <span class="vol-key" style="top:24%;height:11%"></span>
+        <div class="cap-wrap">
+          <img src="assets/manga_single.jpg" alt="漫画ビューアの操作（コマ割りページ）">
+          <span class="cap-ring" style="left:1.2%;top:30%;width:7%;height:40%"></span>
+          <span class="cap-ring" style="left:13%;top:25%;width:74%;height:56%"></span>
+        </div>
+      </div>
+    </div>
+    <p class="ss-cap">見た目はシンプル。でも、縁のドラッグや音量ボタンで片手操作も快適</p>
+
+    <p style="margin-top:24px"><b>中央タップで、全画面表示。</b><br>画面の中央をタップすると、ツールバーが消えて作品だけに集中できます。ページ送りは<b>画面の左右タップ</b>。全画面表示中は、<b>左下で次の巻・右下で前の巻</b>へも移動できます。</p>
+    <div class="anno-stage">
+      <div class="out-bubble to-r" style="left:0;top:40%">画面の左・右をタップで、前後のページへ。</div>
+      <div class="out-bubble to-r" style="left:0;top:82%">左下をタップで次の巻へ。</div>
+      <div class="out-bubble to-l" style="right:0;top:82%">右下をタップで前の巻へ。</div>
+      <div class="anno-frame">
+        <div class="cap-wrap">
+          <img src="assets/manga_fullscreen.jpg" alt="全画面表示。左右タップでページ送り、左下右下で巻移動">
+          <span class="cap-ring" style="left:3%;top:25%;width:27%;height:52%"></span>
+          <span class="cap-ring" style="right:3%;top:25%;width:27%;height:52%"></span>
+          <span class="cap-ring vol" style="left:3%;bottom:3%;width:24%;height:13%"></span>
+          <span class="cap-ring vol" style="right:3%;bottom:3%;width:24%;height:13%"></span>
+        </div>
+      </div>
+    </div>
+    <p class="ss-cap">中央タップで全画面表示。左右タップでページ送り／左下で次の巻・右下で前の巻へ（オレンジ＝ページ、青＝巻）</p>
+
+    <p style="margin-top:24px"><b>余白は、ワンタップでカット。</b><br>スキャンの白フチや余白を自動で詰めて、紙面を画面いっぱいに。文字も絵も、ぐっと大きく読めます。ピンチでの拡大も自在です。</p>
+    <div class="mode-grid" style="max-width:540px;margin-left:auto;margin-right:auto">
+      <figure><img src="assets/manga_trim_off.jpg" alt="余白カット前"><figcaption>余白カット前</figcaption></figure>
+      <figure><img src="assets/manga_trim_on.jpg" alt="余白カット後（画面いっぱい）"><figcaption>余白カット後</figcaption></figure>
+    </div>
+    <p class="ss-cap">同じページ。ワンタップで余白を詰めると、これだけ大きく</p>
+
+    <p style="margin-top:24px"><b>離れたページも、すぐそこ。</b><br>画面下の頁番号をタップ、または下から上にスワイプすると、サムネイルバーがスッと開きます。一覧から目的のページへ一気に飛べます。</p>
+    <img class="ss-img" src="assets/manga_thumbs.jpg" alt="サムネイルバー表示">
+    <p class="ss-cap">下部の頁番号タップ／上スワイプでサムネイルバー</p>
+  </div>
+</section>
+
+</div><!-- /panel3 -->
+
+<div class="tab-panel" data-panel="4">
+
+<!-- サンプル -->
+<section id="sample">
+  <div class="wrap">
+    <div class="panel">
+      <p style="margin:0 0 12px"><span class="soon">Android版 公開に向けて準備中</span></p>
+      <h2>Android版、公開に向けて準備中です。</h2>
+      <p class="lead" style="margin-bottom:18px">漫画・小説を本棚で読む・聴くAndroidアプリを開発中です。公開時期やアップデートの情報は、Xでお知らせします。フォローしてお待ちください。</p>
+      <a class="cta" href="https://x.com/esuna_4649" target="_blank" rel="noopener">最新情報をXでフォロー</a>
+      <a class="cta ghost" href="https://x.com/esuna_4649/status/2066098351804920247" target="_blank" rel="noopener">開発状況をXで見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q">どんなファイルが読めますか？</div>
+        <div class="a">漫画はZIP / CBZ・RAR / CBR・7Z・フォルダ、PDF、文字の本はEPUBに対応。WebP・GIF・BMP・AVIFなどの画像形式も表示できます。</div>
+      </div>
+      <div class="qa">
+        <div class="q">NASやクラウドの本も読めますか？</div>
+        <div class="a">端末がフォルダとして扱えるネットワーク／同期フォルダなら選べます。（専用のクラウド連携は今のところありません）</div>
+      </div>
+      <div class="qa">
+        <div class="q">朗読の声は変えられますか？</div>
+        <div class="a">はい。朗読バーの「声」表示をタップするたびに、端末の音声を順番に切り替えられます。</div>
+      </div>
+      <div class="qa">
+        <div class="q">無料でどこまで使えますか？</div>
+        <div class="a">無料の制限版では、書庫は1つ・先頭から30冊まで本文を読めます（30冊を超える本はロックされます）。正式版では、アプリ内課金で全機能（複数の書庫・冊数無制限）を解除できる予定です。</div>
+      </div>
+      <div class="qa">
+        <div class="q">広告は表示されますか？</div>
+        <div class="a">いいえ。広告は一切表示しません。バナーもポップアップもなく、読書のじゃまをしません。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="closing">
+  <div class="wrap">
+    <h2>読む本も、聴く本も。あなたの本棚を、ここに。</h2>
+    <p style="margin:12px 0 8px"><span class="soon">Android版 公開に向けて準備中</span></p>
+    <a class="cta" href="https://x.com/esuna_4649" target="_blank" rel="noopener" style="margin-top:6px">最新情報をXでフォロー</a>
+    <a class="cta ghost" href="https://x.com/esuna_4649/status/2066098351804920247" target="_blank" rel="noopener" style="margin-top:6px">開発状況をXで見る</a>
+    <a class="cta x" href="https://x.com/intent/post" rel="noopener" onclick="return shareApp(event)" style="margin-top:6px">𝕏 でシェア</a>
+    <p class="small" style="margin-top:12px">ご意見・不具合報告は <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY3DJLreYPvc20ZeEOkn238rYq2ojWfWwEZzcprUYQXo0O8A/viewform" target="_blank" rel="noopener" style="color:var(--accent)">こちらのフォーム</a> から。</p>
+  </div>
+</section>
+
+</div><!-- /panel4 -->
+
+<footer>
+  同人書籍ビューア — esunaStudio<br>
+  漫画・EPUB・PDF対応の蔵書ビューア（広告なし）／ Android版を開発中。<br>
+  最新情報は <a href="https://x.com/esuna_4649" target="_blank" rel="noopener" style="color:inherit">X（@esuna_4649）</a> にて発信中。<br>
+  <a href="/privacy/" style="color:inherit;text-decoration:underline">プライバシーポリシー</a>
+</footer>
+
+<script>
+// 「𝕏 でシェア」ボタン：あらかじめ文・URL・ハッシュタグを入れたXの投稿画面を開く（Web Intent）
+function shareApp(e){
+  if (e) e.preventDefault();
+  var text = '漫画・小説を“本棚”で読む・聴くAndroidアプリ「同人書籍ビューア」📖🔊';
+  var url  = 'https://esunastudio-viewer.pages.dev/';
+  var tags = '同人書籍ビューア,電子書籍';
+  var via  = 'esuna_4649';
+  var intent = 'https://x.com/intent/post?text=' + encodeURIComponent(text)
+    + '&url=' + encodeURIComponent(url)
+    + '&hashtags=' + encodeURIComponent(tags)
+    + '&via=' + encodeURIComponent(via);
+  window.open(intent, '_blank', 'noopener,width=600,height=600');
+  return false;
+}
+</script>
+<script>
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
+  // 固定ヘッダーの高さ分だけ本文を下げる（コンテンツがヘッダーに隠れないように）。
+  var head = document.getElementById('siteHead');
+  function syncHeadPad(){ if (head) document.body.style.paddingTop = head.offsetHeight + 'px'; }
+  syncHeadPad();
+  window.addEventListener('resize', syncHeadPad);
+  window.addEventListener('load', syncHeadPad);
+  function show(n){
+    btns.forEach(function(b){ b.classList.toggle('active', b.dataset.tab === n); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.dataset.panel === n); });
+    syncHeadPad();
+    window.scrollTo({ top: 0 });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.tab); }); });
+  // 「今すぐ使ってみる」(#sample) は4タブ目にあるので、タブ切替＋スクロールに変換。
+  document.querySelectorAll('a[href="#sample"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      show('4');
+      var el = document.getElementById('sample');
+      if (el) setTimeout(function(){ el.scrollIntoView({ behavior: 'smooth' }); }, 40);
+    });
+  });
+})();
+</script>
+</body>
+</html>
