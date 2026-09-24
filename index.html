@@ -272,6 +272,9 @@
   .site-head-brand .tagline{flex-basis:100%;text-align:center;font-size:12px;color:var(--sub);margin-top:2px}
   .site-head-logo{width:34px;height:34px;border-radius:8px;align-self:center;box-shadow:0 2px 6px rgba(40,60,90,.18)}
   .tabs{display:flex;justify-content:center;flex-wrap:wrap;padding:0 6px}
+  .home-btn{display:inline-flex;align-items:center;color:var(--sub);font-size:13px;font-weight:800;
+            padding:11px 16px;text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent}
+  .home-btn:hover{color:var(--accent);border-bottom-color:var(--accent)}
   .tab-btn{appearance:none;border:0;background:none;font:inherit;cursor:pointer;
            padding:11px 18px 11px;font-size:14px;font-weight:800;color:var(--muted);
            border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s}
@@ -287,6 +290,7 @@
     .site-head-brand{padding:10px 12px 6px}
     .site-head-brand b{font-size:15px}
     .site-head-logo{width:30px;height:30px}
+    .home-btn{padding:10px 9px;font-size:12.5px}
     .tab-btn{padding:10px 11px;font-size:12.5px}
   }
 </style>
@@ -301,6 +305,7 @@
     <span class="tagline">漫画・EPUB・PDF対応の蔵書ビューア（広告なし）</span>
   </div>
   <nav class="tabs">
+    <a class="home-btn" href="/" data-analytics-event="site_navigation" data-analytics-link="yukemuri-home" data-analytics-area="app-tabs">← トップへ</a>
     <button class="tab-btn active" data-tab="1" data-analytics-event="viewer_tab_select" data-analytics-link="tab-features" data-analytics-area="app-tabs" data-analytics-tab="features" type="button">特徴・仕様</button>
     <button class="tab-btn" data-tab="2" data-analytics-event="viewer_tab_select" data-analytics-link="tab-book-viewer" data-analytics-area="app-tabs" data-analytics-tab="book-viewer" type="button">書籍ビューア</button>
     <button class="tab-btn" data-tab="3" data-analytics-event="viewer_tab_select" data-analytics-link="tab-manga-viewer" data-analytics-area="app-tabs" data-analytics-tab="manga-viewer" type="button">漫画ビューア</button>
