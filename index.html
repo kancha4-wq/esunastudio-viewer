@@ -29,6 +29,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/app-icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/app-icon-180.png">
+<script defer src="assets/analytics.js?v=20260924"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -300,10 +301,10 @@
     <span class="tagline">漫画・EPUB・PDF対応の蔵書ビューア（広告なし）</span>
   </div>
   <nav class="tabs">
-    <button class="tab-btn active" data-tab="1" type="button">特徴・仕様</button>
-    <button class="tab-btn" data-tab="2" data-analytics-event="viewer_start" data-analytics-link="app-book-viewer" data-analytics-area="app-tabs" type="button">書籍ビューア</button>
-    <button class="tab-btn" data-tab="3" data-analytics-event="viewer_start" data-analytics-link="app-manga-viewer" data-analytics-area="app-tabs" type="button">漫画ビューア</button>
-    <button class="tab-btn" data-tab="4" type="button">公開情報</button>
+    <button class="tab-btn active" data-tab="1" data-analytics-event="viewer_tab_select" data-analytics-link="tab-features" data-analytics-area="app-tabs" data-analytics-tab="features" type="button">特徴・仕様</button>
+    <button class="tab-btn" data-tab="2" data-analytics-event="viewer_tab_select" data-analytics-link="tab-book-viewer" data-analytics-area="app-tabs" data-analytics-tab="book-viewer" type="button">書籍ビューア</button>
+    <button class="tab-btn" data-tab="3" data-analytics-event="viewer_tab_select" data-analytics-link="tab-manga-viewer" data-analytics-area="app-tabs" data-analytics-tab="manga-viewer" type="button">漫画ビューア</button>
+    <button class="tab-btn" data-tab="4" data-analytics-event="viewer_tab_select" data-analytics-link="tab-release-info" data-analytics-area="app-tabs" data-analytics-tab="release-info" type="button">公開情報</button>
   </nav>
 </header>
 
@@ -318,8 +319,8 @@
     <p>設定はいりません。開いた、その状態がいちばん読みやすい。</p>
     <p style="margin:16px auto 6px"><span class="live">Android版 Google Playで公開中</span></p>
     <p style="margin:0 auto 12px;font-weight:700">基本無料・広告なし。全機能の解除は買い切り ¥980 です。</p>
-    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener" data-analytics-link="app-google-play" data-analytics-area="app-hero">Google Playでインストール</a>
-    <a class="cta x" href="https://x.com/intent/post" rel="noopener" data-analytics-link="app-share-x" data-analytics-area="app-hero" onclick="return shareApp(event)">𝕏 でシェア</a>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener" data-analytics-event="google_play_click" data-analytics-link="app-google-play" data-analytics-area="app-hero">Google Playでインストール</a>
+    <a class="cta x" href="https://x.com/intent/post" rel="noopener" data-analytics-event="share_click" data-analytics-link="app-share-x" data-analytics-area="app-hero" onclick="return shareApp(event)">𝕏 でシェア</a>
     <div class="hero-duo">
       <div class="phone-frame"><div class="phone-screen"><div class="phone-notch"></div><img src="assets/manga_panels.jpg" alt="漫画ビューア（コマ割りページ）"></div></div>
       <div class="phone-frame"><div class="phone-screen"><div class="phone-notch"></div><img src="assets/epub_p7.jpg" alt="EPUB書籍ビューア（縦書き本文）"></div></div>
@@ -587,7 +588,7 @@
       <p style="margin:0 0 12px"><span class="live">Android版 Google Playで公開中</span></p>
       <h2>今すぐ、あなたの本棚を持ち歩けます。</h2>
       <p class="lead" style="margin-bottom:18px">漫画・小説をひとつの本棚で読む・聴くAndroidアプリです。基本無料・広告なしで、無料版は30冊まで閲覧できます。</p>
-      <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener">Google Playでインストール</a>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener" data-analytics-event="google_play_click" data-analytics-link="app-google-play" data-analytics-area="release-panel">Google Playでインストール</a>
     </div>
   </div>
 </section>
@@ -626,8 +627,8 @@
   <div class="wrap">
     <h2>読む本も、聴く本も。あなたの本棚を、ここに。</h2>
     <p style="margin:12px 0 8px"><span class="live">Android版 Google Playで公開中</span></p>
-    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener" style="margin-top:6px">Google Playでインストール</a>
-    <a class="cta x" href="https://x.com/intent/post" rel="noopener" onclick="return shareApp(event)" style="margin-top:6px">𝕏 でシェア</a>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mangacatalog.app" target="_blank" rel="noopener" data-analytics-event="google_play_click" data-analytics-link="app-google-play" data-analytics-area="closing" style="margin-top:6px">Google Playでインストール</a>
+    <a class="cta x" href="https://x.com/intent/post" rel="noopener" data-analytics-event="share_click" data-analytics-link="app-share-x" data-analytics-area="closing" onclick="return shareApp(event)" style="margin-top:6px">𝕏 でシェア</a>
     <p class="small" style="margin-top:12px">ご意見・不具合報告は <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY3DJLreYPvc20ZeEOkn238rYq2ojWfWwEZzcprUYQXo0O8A/viewform" target="_blank" rel="noopener" style="color:var(--accent)">こちらのフォーム</a> から。</p>
   </div>
 </section>
