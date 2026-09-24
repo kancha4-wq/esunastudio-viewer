@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var MEASUREMENT_ID = "G-FCSL20JL55";
+  var MEASUREMENT_ID = "G-BPNR6MTZP3";
   var SITE_ID = "esunastudio-viewer";
 
   window.dataLayer = window.dataLayer || [];
