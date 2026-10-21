@@ -1,0 +1,394 @@
+{
+  "version": "1.0.17",
+  "versionCode": 18,
+  "date": "2026-10-21",
+  "sourceJaEn": "Confirmed published 4-line Play release notes",
+  "locales": {
+    "af": [
+      "Lyste en filters vir WEB-manga en WEB-romans, asook jaar-/seisoenkeuse vir animeverwerkings, is verbeter.",
+      "Skakels na oorspronklike werke en amptelike voorbeelde, ondersteunde omslae en ranglysvertonings is bygewerk.",
+      "Outomatiese laai ná biblioteekkeuse, lysopdaterings en die oopmaak van ondersteunde eksterne lêers is verbeter.",
+      "Probleme met die behoud van die terugkeerposisie, meertalige vertoning, teksgrootte en kieslyshoogte is reggestel."
+    ],
+    "am": [
+      "የድር ማንጋና ልቦለድ ዝርዝሮች፣ ማጣሪያዎች እና ወደ አኒሜ የተቀየሩ ሥራዎችን በዓመትና በወቅት መምረጥ ተሻሽለዋል።",
+      "የመጀመሪያ ሥራዎችና የኦፊሴላዊ ናሙና ንባብ አገናኞች፣ የሚደገፉ መጽሐፍት ሽፋኖች እና የደረጃ ዝርዝር ማሳያዎች ተዘምነዋል።",
+      "መጽሐፍት ማከማቻ ከመረጡ በኋላ በራስ-ሰር መጫን፣ ዝርዝርን ማደስ እና የሚደገፉ ውጫዊ ፋይሎችን መክፈት ተሻሽለዋል።",
+      "የመመለሻ ሁኔታን መጠበቅ፣ የብዙ ቋንቋ ማሳያ፣ የጽሑፍ መጠን እና የምናሌ ቁመት ችግሮች ተስተካክለዋል።"
+    ],
+    "ar": [
+      "تم تحسين قوائم مانغا الويب وروايات الويب وتصفيتها، واختيار السنة والموسم للأعمال المقتبسة إلى أنمي.",
+      "تم تحديث روابط الأعمال الأصلية وعينات القراءة الرسمية، وأغلفة المنتجات المدعومة وعرض التصنيفات.",
+      "تم تحسين التحميل التلقائي بعد اختيار المكتبة، وتحديث القوائم، وفتح الملفات الخارجية المدعومة.",
+      "تم إصلاح مشكلات الاحتفاظ بحالة الرجوع، والعرض متعدد اللغات، وحجم النص وارتفاع القوائم."
+    ],
+    "az": [
+      "Veb manqa və roman siyahıları, filtrlər və animeyə uyğunlaşdırılmış əsərlər üçün il/mövsüm seçimi təkmilləşdirildi.",
+      "Orijinal əsərlərə və rəsmi oxu nümunələrinə keçidlər, dəstəklənən üz qabıqları və reytinq göstərilməsi yeniləndi.",
+      "Kitabxana seçildikdən sonra avtomatik yükləmə, siyahıların yenilənməsi və dəstəklənən xarici faylların açılması təkmilləşdirildi.",
+      "Geri qayıdış vəziyyətinin saxlanması, çoxdilli göstərmə, mətn ölçüsü və menyu hündürlüyü ilə bağlı problemlər düzəldildi."
+    ],
+    "be": [
+      "Палепшаны спісы і фільтры вэб-мангі і вэб-раманаў, а таксама выбар года і сезона для анімэ-адаптацый.",
+      "Абноўлены спасылкі на арыгінальныя творы і афіцыйныя ўрыўкі для чытання, вокладкі падтрымліваемых тавараў і паказ рэйтынгаў.",
+      "Палепшаны аўтаматычная загрузка пасля выбару бібліятэкі, абнаўленне спісаў і адкрыццё падтрымліваемых знешніх файлаў.",
+      "Выпраўлены праблемы з захаваннем стану вяртання, шматмоўным паказам, памерам тэксту і вышынёй меню."
+    ],
+    "bg": [
+      "Подобрени са списъците и филтрите за уеб манга и уеб романи, както и изборът на година и сезон за аниме адаптации.",
+      "Обновени са връзките към оригиналните произведения и официалните откъси за четене, кориците на поддържаните продукти и показването на класации.",
+      "Подобрени са автоматичното зареждане след избор на библиотека, обновяването на списъци и отварянето на поддържани външни файлове.",
+      "Поправени са проблеми със запазването на състоянието при връщане, многоезичното показване, размера на текста и височината на менюто."
+    ],
+    "bn": [
+      "ওয়েব মাঙ্গা ও ওয়েব উপন্যাসের তালিকা ও ফিল্টার এবং অ্যানিমেতে রূপান্তরিত রচনার বছর ও মৌসুম নির্বাচন উন্নত করা হয়েছে।",
+      "মূল রচনা ও আনুষ্ঠানিক নমুনা পাঠের লিংক, সমর্থিত পণ্যের প্রচ্ছদ ও র‍্যাঙ্কিং প্রদর্শন হালনাগাদ করা হয়েছে।",
+      "লাইব্রেরি নির্বাচনের পর স্বয়ংক্রিয় লোডিং, তালিকা হালনাগাদ ও সমর্থিত বাহ্যিক ফাইল খোলা উন্নত করা হয়েছে।",
+      "ফিরে যাওয়ার অবস্থা সংরক্ষণ, বহুভাষিক প্রদর্শন, লেখার আকার ও মেনুর উচ্চতার সমস্যা সংশোধন করা হয়েছে।"
+    ],
+    "ca": [
+      "S'han millorat les llistes i els filtres de manga i novel·les web, i la selecció d'any i temporada de les adaptacions a l'anime.",
+      "S'han actualitzat els enllaços a les obres originals i a les mostres de lectura oficials, les cobertes dels productes compatibles i la visualització de rànquings.",
+      "S'han millorat la càrrega automàtica després de seleccionar la biblioteca, l'actualització de llistes i l'obertura de fitxers externs compatibles.",
+      "S'han corregit problemes de conservació de l'estat de retorn, visualització multilingüe, mida del text i alçada dels menús."
+    ],
+    "cs": [
+      "Byly vylepšeny seznamy a filtry webové mangy a webových románů i výběr roku a sezóny u anime adaptací.",
+      "Byly aktualizovány odkazy na původní díla a oficiální ukázky, obálky podporovaných produktů a zobrazení žebříčků.",
+      "Bylo vylepšeno automatické načítání po výběru knihovny, aktualizace seznamů a otevírání podporovaných externích souborů.",
+      "Byly opraveny problémy se zachováním stavu při návratu, vícejazyčným zobrazením, velikostí textu a výškou nabídky."
+    ],
+    "da": [
+      "Forbedret lister og filtre for webmanga og webromaner samt valg af år og sæson for animeadaptationer.",
+      "Opdateret links til originalværker og officielle læseprøver, understøttede produkters omslag og ranglistevisning.",
+      "Forbedret automatisk indlæsning efter valg af bibliotek, opdatering af lister og åbning af understøttede eksterne filer.",
+      "Rettet problemer med bevarelse af returtilstand, flersproget visning, tekststørrelse og menuhøjde."
+    ],
+    "de": [
+      "Listen und Filter für Web-Manga und Web-Romane sowie die Auswahl von Jahr und Saison bei Anime-Adaptionen wurden verbessert.",
+      "Links zu Originalwerken und offiziellen Leseproben, Cover unterstützter Produkte und Ranglistenanzeigen wurden aktualisiert.",
+      "Das automatische Laden nach der Bibliotheksauswahl, Listenaktualisierungen und das Öffnen unterstützter externer Dateien wurden verbessert.",
+      "Probleme beim Beibehalten des Rückkehrzustands, bei der mehrsprachigen Anzeige, der Textgröße und der Menühöhe wurden behoben."
+    ],
+    "el": [
+      "Βελτιώθηκαν οι λίστες και τα φίλτρα για διαδικτυακά μάνγκα και μυθιστορήματα, καθώς και η επιλογή έτους και σεζόν για διασκευές σε άνιμε.",
+      "Ενημερώθηκαν οι σύνδεσμοι προς τα πρωτότυπα έργα και τα επίσημα δείγματα ανάγνωσης, τα εξώφυλλα υποστηριζόμενων προϊόντων και η εμφάνιση κατάταξης.",
+      "Βελτιώθηκαν η αυτόματη φόρτωση μετά την επιλογή βιβλιοθήκης, η ανανέωση λιστών και το άνοιγμα υποστηριζόμενων εξωτερικών αρχείων.",
+      "Διορθώθηκαν προβλήματα διατήρησης της κατάστασης επιστροφής, πολυγλωσσικής εμφάνισης, μεγέθους κειμένου και ύψους μενού."
+    ],
+    "es": [
+      "Se mejoraron las listas y los filtros de manga y novelas web, así como la selección de año y temporada de las adaptaciones al anime.",
+      "Se actualizaron los enlaces a las obras originales y a las muestras de lectura oficiales, las portadas de los productos compatibles y la visualización de clasificaciones.",
+      "Se mejoraron la carga automática tras seleccionar la biblioteca, la actualización de listas y la apertura de archivos externos compatibles.",
+      "Se corrigieron problemas de conservación del estado de retorno, visualización multilingüe, tamaño del texto y altura de los menús."
+    ],
+    "et": [
+      "Täiustati veebimanga ja veebiromaanide loendeid ja filtreid ning animekohanduste aasta ja hooaja valikut.",
+      "Uuendati linke algteostele ja ametlikele lugemisnäidistele, toetatud toodete kaanepilte ja edetabelite kuvamist.",
+      "Täiustati automaatset laadimist pärast raamatukogu valimist, loendite värskendamist ja toetatud väliste failide avamist.",
+      "Parandati naasmisoleku säilitamise, mitmekeelse kuvamise, teksti suuruse ja menüü kõrguse probleeme."
+    ],
+    "fa": [
+      "فهرست‌ها و فیلترهای مانگا و رمان‌های وب و انتخاب سال و فصل برای اقتباس‌های انیمه بهبود یافت.",
+      "پیوندهای آثار اصلی و نمونه‌های رسمی مطالعه، جلد محصولات پشتیبانی‌شده و نمایش رتبه‌بندی به‌روز شد.",
+      "بارگذاری خودکار پس از انتخاب کتابخانه، به‌روزرسانی فهرست‌ها و باز کردن فایل‌های خارجی پشتیبانی‌شده بهبود یافت.",
+      "مشکلات حفظ وضعیت بازگشت، نمایش چندزبانه، اندازهٔ متن و ارتفاع منو برطرف شد."
+    ],
+    "fi": [
+      "Parannettiin verkkomangan ja verkkoromaanien luetteloita ja suodattimia sekä animesovitusten vuoden ja kauden valintaa.",
+      "Päivitettiin linkit alkuperäisteoksiin ja virallisiin lukunäytteisiin, tuettujen tuotteiden kannet ja sijoitusten näyttö.",
+      "Parannettiin automaattista latausta kirjaston valinnan jälkeen, luetteloiden päivitystä ja tuettujen ulkoisten tiedostojen avaamista.",
+      "Korjattiin paluutilan säilyttämiseen, monikieliseen näyttöön, tekstikokoon ja valikon korkeuteen liittyviä ongelmia."
+    ],
+    "fil": [
+      "Pinahusay ang mga listahan at filter ng WEB manga at WEB novel, at ang pagpili ng taon at season ng mga adaptasyong anime.",
+      "Na-update ang mga link sa orihinal na akda at opisyal na mga sample na babasahin, mga pabalat ng suportadong produkto, at pagpapakita ng ranggo.",
+      "Pinahusay ang awtomatikong pag-load matapos pumili ng aklatan, pag-update ng listahan, at pagbukas ng mga suportadong panlabas na file.",
+      "Inayos ang mga isyu sa pagpapanatili ng estado sa pagbabalik, pagpapakitang multilingguwal, laki ng teksto, at taas ng menu."
+    ],
+    "fr": [
+      "Amélioration des listes et filtres de mangas et romans web, ainsi que du choix de l’année et de la saison des adaptations en anime.",
+      "Mise à jour des liens vers les œuvres originales et les extraits officiels, des couvertures des produits pris en charge et de l’affichage des classements.",
+      "Amélioration du chargement automatique après sélection de la bibliothèque, de l’actualisation des listes et de l’ouverture des fichiers externes pris en charge.",
+      "Correction de problèmes de conservation de l’état au retour, d’affichage multilingue, de taille du texte et de hauteur des menus."
+    ],
+    "he": [
+      "שופרו הרשימות והסינון של מנגה ורומנים ברשת, ובחירת השנה והעונה של עיבודי אנימה.",
+      "עודכנו הקישורים ליצירות המקור ולדוגמאות הקריאה הרשמיות, הכריכות של מוצרים נתמכים ותצוגת הדירוגים.",
+      "שופרו הטעינה האוטומטית לאחר בחירת ספרייה, עדכון הרשימות ופתיחת קבצים חיצוניים נתמכים.",
+      "תוקנו בעיות בשמירת מצב החזרה, בתצוגה רב־לשונית, בגודל הטקסט ובגובה התפריטים."
+    ],
+    "hi": [
+      "वेब मंगा और वेब उपन्यास की सूचियों व फ़िल्टरों और एनीमे रूपांतरणों के वर्ष व सीज़न चयन में सुधार किया गया।",
+      "मूल रचनाओं व आधिकारिक पठन नमूनों के लिंक, समर्थित उत्पादों के आवरण और रैंकिंग प्रदर्शन अपडेट किए गए।",
+      "पुस्तकालय चुनने के बाद स्वचालित लोडिंग, सूची अपडेट और समर्थित बाहरी फ़ाइलें खोलने में सुधार किया गया।",
+      "वापसी की स्थिति बनाए रखने, बहुभाषी प्रदर्शन, टेक्स्ट के आकार और मेनू की ऊँचाई से जुड़ी समस्याएँ ठीक की गईं।"
+    ],
+    "hr": [
+      "Poboljšani su popisi i filtri za web-mangu i web-romane te odabir godine i sezone anime adaptacija.",
+      "Ažurirane su poveznice na izvorna djela i službene uzorke za čitanje, naslovnice podržanih proizvoda i prikaz poretka.",
+      "Poboljšani su automatsko učitavanje nakon odabira knjižnice, ažuriranje popisa i otvaranje podržanih vanjskih datoteka.",
+      "Ispravljeni su problemi s očuvanjem stanja pri povratku, višejezičnim prikazom, veličinom teksta i visinom izbornika."
+    ],
+    "hu": [
+      "Javultak a webes mangák és regények listái és szűrői, valamint az animeadaptációk év- és évadválasztása.",
+      "Frissültek az eredeti művek és a hivatalos olvasóminták hivatkozásai, a támogatott termékek borítói és a rangsorok megjelenítése.",
+      "Javult a könyvtár kiválasztása utáni automatikus betöltés, a listák frissítése és a támogatott külső fájlok megnyitása.",
+      "Javítottuk a visszatérési állapot megőrzésével, a többnyelvű megjelenítéssel, a szövegmérettel és a menümagassággal kapcsolatos hibákat."
+    ],
+    "hy": [
+      "Բարելավվել են վեբ մանգայի և վեբ վեպերի ցանկերն ու զտիչները, ինչպես նաև անիմե ադապտացիաների տարվա և սեզոնի ընտրությունը։",
+      "Թարմացվել են բնօրինակ ստեղծագործությունների և պաշտոնական ընթերցման նմուշների հղումները, աջակցվող ապրանքների շապիկները և վարկանիշների ցուցադրումը։",
+      "Բարելավվել են գրադարանը ընտրելուց հետո ավտոմատ բեռնումը, ցանկերի թարմացումը և աջակցվող արտաքին ֆայլերի բացումը։",
+      "Ուղղվել են վերադարձի վիճակի պահպանման, բազմալեզու ցուցադրման, տեքստի չափի և ցանկի բարձրության խնդիրները։"
+    ],
+    "id": [
+      "Daftar dan filter manga serta novel web, dan pemilihan tahun/musim adaptasi anime telah ditingkatkan.",
+      "Tautan karya asli dan cuplikan baca resmi, sampul produk yang didukung, serta tampilan peringkat telah diperbarui.",
+      "Pemuatan otomatis setelah memilih perpustakaan, pembaruan daftar, dan pembukaan file eksternal yang didukung telah ditingkatkan.",
+      "Masalah penyimpanan status saat kembali, tampilan multibahasa, ukuran teks, dan tinggi menu telah diperbaiki."
+    ],
+    "is": [
+      "Listar og síur fyrir vefmanga og vefskáldsögur, ásamt vali á ári og árstíð fyrir anime-aðlaganir, hafa verið bætt.",
+      "Tenglar á frumverk og opinber lestrarsýnishorn, kápur studdra vara og birting vinsældalista hafa verið uppfærð.",
+      "Sjálfvirk hleðsla eftir val á bókasafni, uppfærsla lista og opnun studdra ytri skráa hafa verið bætt.",
+      "Vandamál við varðveislu stöðu þegar farið er til baka, fjöltyngda birtingu, textastærð og hæð valmynda hafa verið lagfærð."
+    ],
+    "it": [
+      "Migliorati gli elenchi e i filtri di manga e romanzi web e la selezione di anno e stagione degli adattamenti anime.",
+      "Aggiornati i link alle opere originali e agli estratti ufficiali, le copertine dei prodotti supportati e la visualizzazione delle classifiche.",
+      "Migliorati il caricamento automatico dopo la selezione della libreria, l’aggiornamento degli elenchi e l’apertura dei file esterni supportati.",
+      "Corretti problemi di conservazione dello stato al ritorno, visualizzazione multilingue, dimensione del testo e altezza dei menu."
+    ],
+    "ka": [
+      "გაუმჯობესდა ვებმანგისა და ვებრომანების სიები და ფილტრები, ასევე ანიმეადაპტაციების წლისა და სეზონის არჩევა.",
+      "განახლდა ორიგინალი ნაწარმოებებისა და ოფიციალური საკითხავი ნიმუშების ბმულები, მხარდაჭერილი პროდუქტების გარეკანები და რეიტინგების ჩვენება.",
+      "გაუმჯობესდა ბიბლიოთეკის არჩევის შემდეგ ავტომატური ჩატვირთვა, სიების განახლება და მხარდაჭერილი გარე ფაილების გახსნა.",
+      "გამოსწორდა დაბრუნების მდგომარეობის შენარჩუნების, მრავალენოვანი ჩვენების, ტექსტის ზომისა და მენიუს სიმაღლის პრობლემები."
+    ],
+    "kk": [
+      "Веб-манга мен веб-романдардың тізімдері мен сүзгілері, аниме бейімделімдерінің жылы мен маусымын таңдау жақсартылды.",
+      "Түпнұсқа шығармалар мен ресми оқу үлгілерінің сілтемелері, қолдау көрсетілетін өнімдердің мұқабалары және рейтинг көрсетілімі жаңартылды.",
+      "Кітапхананы таңдағаннан кейін автоматты жүктеу, тізімдерді жаңарту және қолдау көрсетілетін сыртқы файлдарды ашу жақсартылды.",
+      "Қайту күйін сақтау, көптілді көрсету, мәтін өлшемі және мәзір биіктігіне қатысты ақаулар түзетілді."
+    ],
+    "km": [
+      "បានកែលម្អបញ្ជី និងតម្រងសម្រាប់ម៉ង់ហ្គា និងប្រលោមលោកតាមវេប ព្រមទាំងការជ្រើសរើសឆ្នាំ និងរដូវកាលនៃស្នាដៃដែលបានកែសម្រួលជាអានីមេ។",
+      "បានធ្វើបច្ចុប្បន្នភាពតំណទៅស្នាដៃដើម និងគំរូអានផ្លូវការ រូបគម្របផលិតផលដែលគាំទ្រ និងការបង្ហាញចំណាត់ថ្នាក់។",
+      "បានកែលម្អការផ្ទុកដោយស្វ័យប្រវត្តិបន្ទាប់ពីជ្រើសរើសបណ្ណាល័យ ការធ្វើបច្ចុប្បន្នភាពបញ្ជី និងការបើកឯកសារខាងក្រៅដែលគាំទ្រ។",
+      "បានជួសជុលបញ្ហារក្សាស្ថានភាពពេលត្រឡប់ក្រោយ ការបង្ហាញពហុភាសា ទំហំអក្សរ និងកម្ពស់ម៉ឺនុយ។"
+    ],
+    "ko": [
+      "웹 만화·웹 소설 목록과 필터, 애니메이션화 작품의 연도·분기 선택을 개선했습니다.",
+      "원작·공식 미리보기 링크, 지원 상품의 표지와 순위 표시를 업데이트했습니다.",
+      "서고 선택 후 자동 불러오기, 목록 갱신, 지원되는 외부 파일 열기를 개선했습니다.",
+      "돌아갈 위치 유지, 다국어 표시, 글자 크기와 메뉴 높이의 문제를 수정했습니다."
+    ],
+    "ky": [
+      "Веб-манга жана веб-романдардын тизмелери менен чыпкалары, анимеге ылайыкташтырылган чыгармалардын жылын жана мезгилин тандоо жакшыртылды.",
+      "Түпнуска чыгармаларга жана расмий окуу үлгүлөрүнө шилтемелер, колдоого алынган өнүмдөрдүн мукабалары жана рейтингди көрсөтүү жаңыртылды.",
+      "Китепкана тандалгандан кийинки автоматтык жүктөө, тизмелерди жаңыртуу жана колдоого алынган тышкы файлдарды ачуу жакшыртылды.",
+      "Артка кайткандагы абалды сактоо, көп тилдүү көрсөтүү, тексттин өлчөмү жана меню бийиктигиндеги көйгөйлөр оңдолду."
+    ],
+    "lo": [
+      "ປັບປຸງລາຍການ ແລະ ຕົວກັ່ນຕອງມັງງະເວັບ ແລະ ນິຍາຍເວັບ, ພ້ອມທັງການເລືອກປີ ແລະ ລະດູການຂອງຜົນງານທີ່ດັດແປງເປັນອານິເມະ.",
+      "ອັບເດດລິ້ງຜົນງານຕົ້ນສະບັບ ແລະ ຕົວຢ່າງອ່ານທາງການ, ຮູບໜ້າປົກຂອງສິນຄ້າທີ່ຮອງຮັບ ແລະ ການສະແດງອັນດັບ.",
+      "ປັບປຸງການໂຫຼດອັດຕະໂນມັດຫຼັງເລືອກຫ້ອງສະໝຸດ, ການອັບເດດລາຍການ ແລະ ການເປີດໄຟລ໌ພາຍນອກທີ່ຮອງຮັບ.",
+      "ແກ້ໄຂບັນຫາການຮັກສາສະຖານະເມື່ອກັບຄືນ, ການສະແດງຫຼາຍພາສາ, ຂະໜາດຕົວອັກສອນ ແລະ ຄວາມສູງເມນູ."
+    ],
+    "lt": [
+      "Patobulinti internetinių mangų ir romanų sąrašai ir filtrai bei anime adaptacijų metų ir sezono pasirinkimas.",
+      "Atnaujintos nuorodos į originalius kūrinius ir oficialias skaitymo ištraukas, palaikomų produktų viršeliai ir reitingų rodymas.",
+      "Patobulintas automatinis įkėlimas pasirinkus biblioteką, sąrašų atnaujinimas ir palaikomų išorinių failų atidarymas.",
+      "Ištaisytos grįžimo būsenos išsaugojimo, daugiakalbio rodymo, teksto dydžio ir meniu aukščio problemos."
+    ],
+    "lv": [
+      "Uzlaboti tīmekļa mangu un romānu saraksti un filtri, kā arī anime adaptāciju gada un sezonas izvēle.",
+      "Atjauninātas saites uz oriģināldarbiem un oficiālajiem lasīšanas paraugiem, atbalstīto produktu vāki un reitingu attēlojums.",
+      "Uzlabota automātiskā ielāde pēc bibliotēkas izvēles, sarakstu atjaunināšana un atbalstīto ārējo failu atvēršana.",
+      "Novērstas problēmas ar atgriešanās stāvokļa saglabāšanu, daudzvalodu attēlojumu, teksta lielumu un izvēlnes augstumu."
+    ],
+    "mk": [
+      "Подобрени се списоците и филтрите за веб-манга и веб-романи, како и изборот на година и сезона за аниме адаптации.",
+      "Ажурирани се врските до оригиналните дела и официјалните примероци за читање, кориците на поддржаните производи и приказот на рангирањата.",
+      "Подобрени се автоматското вчитување по изборот на библиотека, ажурирањето на списоците и отворањето поддржани надворешни датотеки.",
+      "Поправени се проблемите со зачувувањето на состојбата при враќање, повеќејазичниот приказ, големината на текстот и висината на менито."
+    ],
+    "mn": [
+      "Вэб манга, вэб романы жагсаалт, шүүлтүүр болон анимэ болсон бүтээлийн он, улирлын сонголтыг сайжруулав.",
+      "Эх бүтээл, албан ёсны унших хэсгийн холбоос, дэмжигдсэн бүтээгдэхүүний хавтас болон эрэмбийн харуулалтыг шинэчлэв.",
+      "Номын сан сонгосны дараах автомат ачаалалт, жагсаалтын шинэчлэлт болон дэмжигдсэн гадаад файлыг нээх үйлдлийг сайжруулав.",
+      "Буцах үеийн төлөв хадгалалт, олон хэлний харуулалт, бичвэрийн хэмжээ болон цэсний өндрийн алдааг засав."
+    ],
+    "ms": [
+      "Senarai dan penapis manga serta novel web, dan pemilihan tahun/musim adaptasi anime telah ditambah baik.",
+      "Pautan karya asal dan sampel bacaan rasmi, kulit produk yang disokong, serta paparan kedudukan telah dikemas kini.",
+      "Pemuatan automatik selepas memilih perpustakaan, kemas kini senarai dan pembukaan fail luaran yang disokong telah ditambah baik.",
+      "Masalah pengekalan keadaan semasa kembali, paparan berbilang bahasa, saiz teks dan ketinggian menu telah dibaiki."
+    ],
+    "my": [
+      "ဝဘ်မန်ဂါနှင့် ဝဘ်ဝတ္ထုစာရင်းများ၊ စစ်ထုတ်မှုများနှင့် အန်နီမေးအဖြစ် ပြောင်းလဲဖန်တီးထားသော လက်ရာများ၏ နှစ်နှင့်ရာသီ ရွေးချယ်မှုကို ပိုမိုကောင်းမွန်စေခဲ့သည်။",
+      "မူရင်းလက်ရာနှင့် တရားဝင်နမူနာဖတ်ရှုရန် လင့်ခ်များ၊ ပံ့ပိုးထားသော ထုတ်ကုန်များ၏ မျက်နှာဖုံးများနှင့် အဆင့်သတ်မှတ်ချက်ဖော်ပြမှုကို အပ်ဒိတ်လုပ်ခဲ့သည်။",
+      "စာကြည့်တိုက်ရွေးပြီးနောက် အလိုအလျောက်တင်ခြင်း၊ စာရင်းအပ်ဒိတ်လုပ်ခြင်းနှင့် ပံ့ပိုးထားသော ပြင်ပဖိုင်များဖွင့်ခြင်းကို ပိုမိုကောင်းမွန်စေခဲ့သည်။",
+      "ပြန်သွားသည့်အခြေအနေကို ထိန်းသိမ်းခြင်း၊ ဘာသာစကားစုံဖော်ပြမှု၊ စာသားအရွယ်အစားနှင့် မီနူးအမြင့်ဆိုင်ရာ ပြဿနာများကို ပြင်ဆင်ခဲ့သည်။"
+    ],
+    "nb": [
+      "Forbedret lister og filtre for nettmanga og nettromaner samt valg av år og sesong for animeadaptasjoner.",
+      "Oppdatert lenker til originalverk og offisielle leseprøver, omslag for støttede produkter og visning av rangeringer.",
+      "Forbedret automatisk innlasting etter valg av bibliotek, oppdatering av lister og åpning av støttede eksterne filer.",
+      "Rettet problemer med bevaring av returtilstand, flerspråklig visning, tekststørrelse og menyhøyde."
+    ],
+    "ne": [
+      "वेब माङ्गा र वेब उपन्यासका सूची र फिल्टरहरू तथा एनिमे रूपान्तरणहरूको वर्ष र सिजन चयनमा सुधार गरिएको छ।",
+      "मूल कृति र आधिकारिक पठन नमुनाका लिङ्कहरू, समर्थित उत्पादनका आवरणहरू र वरीयता प्रदर्शन अद्यावधिक गरिएको छ।",
+      "पुस्तकालय चयनपछि स्वचालित लोडिङ, सूची अद्यावधिक र समर्थित बाह्य फाइल खोल्ने कार्यमा सुधार गरिएको छ।",
+      "फर्कने अवस्था सुरक्षित राख्ने, बहुभाषिक प्रदर्शन, अक्षरको आकार र मेनुको उचाइसम्बन्धी समस्याहरू समाधान गरिएको छ।"
+    ],
+    "nl": [
+      "Lijsten en filters voor webmanga en webromans en de jaar-/seizoenselectie voor animebewerkingen zijn verbeterd.",
+      "Links naar oorspronkelijke werken en officiële leesfragmenten, omslagen van ondersteunde producten en de weergave van ranglijsten zijn bijgewerkt.",
+      "Automatisch laden na het kiezen van een bibliotheek, het bijwerken van lijsten en het openen van ondersteunde externe bestanden zijn verbeterd.",
+      "Problemen met het behouden van de terugkeerstatus, meertalige weergave, tekstgrootte en menuhoogte zijn opgelost."
+    ],
+    "nn": [
+      "Forbetra lister og filter for nettmanga og nettromanar, og val av år og sesong for animeadaptasjonar.",
+      "Oppdatert lenkjer til originalverk og offisielle leseprøver, omslag for støtta produkt og vising av rangeringar.",
+      "Forbetra automatisk innlasting etter val av bibliotek, oppdatering av lister og opning av støtta eksterne filer.",
+      "Retta problem med å ta vare på returtilstanden, fleirspråkleg vising, tekststorleik og menyhøgd."
+    ],
+    "pl": [
+      "Ulepszono listy i filtry mang oraz powieści internetowych, a także wybór roku i sezonu adaptacji anime.",
+      "Zaktualizowano odnośniki do oryginalnych utworów i oficjalnych fragmentów do czytania, okładki obsługiwanych produktów oraz wyświetlanie rankingów.",
+      "Ulepszono automatyczne wczytywanie po wyborze biblioteki, aktualizowanie list i otwieranie obsługiwanych plików zewnętrznych.",
+      "Naprawiono problemy z zachowaniem stanu przy powrocie, wyświetlaniem wielojęzycznym, rozmiarem tekstu i wysokością menu."
+    ],
+    "pt-BR": [
+      "Melhoradas as listas e os filtros de mangás e romances da web e a seleção de ano e temporada das adaptações em anime.",
+      "Atualizados os links para as obras originais e amostras oficiais de leitura, as capas dos produtos compatíveis e a exibição de classificações.",
+      "Melhorados o carregamento automático após selecionar a biblioteca, a atualização de listas e a abertura de arquivos externos compatíveis.",
+      "Corrigidos problemas de manutenção do estado ao retornar, exibição multilíngue, tamanho do texto e altura dos menus."
+    ],
+    "pt-PT": [
+      "Melhoradas as listas e os filtros de manga e romances da Web e a seleção de ano e temporada das adaptações para anime.",
+      "Atualizadas as ligações para as obras originais e amostras oficiais de leitura, as capas dos produtos compatíveis e a apresentação de classificações.",
+      "Melhorados o carregamento automático após selecionar a biblioteca, a atualização de listas e a abertura de ficheiros externos compatíveis.",
+      "Corrigidos problemas de manutenção do estado ao regressar, apresentação multilingue, tamanho do texto e altura dos menus."
+    ],
+    "ro": [
+      "Au fost îmbunătățite listele și filtrele pentru manga și romane web, precum și selectarea anului și sezonului adaptărilor anime.",
+      "Au fost actualizate linkurile către operele originale și fragmentele oficiale de lectură, coperțile produselor acceptate și afișarea clasamentelor.",
+      "Au fost îmbunătățite încărcarea automată după selectarea bibliotecii, actualizarea listelor și deschiderea fișierelor externe acceptate.",
+      "Au fost remediate problemele de păstrare a stării la revenire, afișare multilingvă, dimensiune a textului și înălțime a meniului."
+    ],
+    "ru": [
+      "Улучшены списки и фильтры веб-манги и веб-романов, а также выбор года и сезона аниме-адаптаций.",
+      "Обновлены ссылки на оригинальные произведения и официальные ознакомительные фрагменты, обложки поддерживаемых товаров и отображение рейтингов.",
+      "Улучшены автоматическая загрузка после выбора библиотеки, обновление списков и открытие поддерживаемых внешних файлов.",
+      "Исправлены проблемы сохранения состояния при возврате, многоязычного отображения, размера текста и высоты меню."
+    ],
+    "si": [
+      "වෙබ් මංගා සහ වෙබ් නවකතා ලැයිස්තු හා පෙරහන් සහ ඇනිමේ අනුවර්තනවල වසර හා සමය තේරීම වැඩිදියුණු කර ඇත.",
+      "මුල් කෘති සහ නිල කියවීම් සාම්පල සඳහා සබැඳි, සහාය දක්වන නිෂ්පාදනවල කවර සහ ශ්‍රේණිගත කිරීම් පෙන්වීම යාවත්කාලීන කර ඇත.",
+      "පුස්තකාලය තේරීමෙන් පසු ස්වයංක්‍රීයව පූරණය කිරීම, ලැයිස්තු යාවත්කාලීන කිරීම සහ සහාය දක්වන බාහිර ගොනු විවෘත කිරීම වැඩිදියුණු කර ඇත.",
+      "ආපසු යාමේ තත්ත්වය රැකගැනීම, බහුභාෂා දර්ශනය, අකුරු ප්‍රමාණය සහ මෙනු උස සම්බන්ධ ගැටලු නිවැරදි කර ඇත."
+    ],
+    "sk": [
+      "Boli vylepšené zoznamy a filtre webovej mangy a webových románov aj výber roka a sezóny anime adaptácií.",
+      "Boli aktualizované odkazy na pôvodné diela a oficiálne ukážky na čítanie, obálky podporovaných produktov a zobrazenie rebríčkov.",
+      "Bolo vylepšené automatické načítanie po výbere knižnice, aktualizácia zoznamov a otváranie podporovaných externých súborov.",
+      "Boli opravené problémy so zachovaním stavu pri návrate, viacjazyčným zobrazením, veľkosťou textu a výškou ponuky."
+    ],
+    "sl": [
+      "Izboljšani so seznami in filtri spletnih mang in romanov ter izbira leta in sezone anime priredb.",
+      "Posodobljene so povezave do izvirnih del in uradnih bralnih vzorcev, naslovnice podprtih izdelkov ter prikaz lestvic.",
+      "Izboljšani so samodejno nalaganje po izbiri knjižnice, posodabljanje seznamov in odpiranje podprtih zunanjih datotek.",
+      "Odpravljene so težave z ohranjanjem stanja ob vrnitvi, večjezičnim prikazom, velikostjo besedila in višino menija."
+    ],
+    "sq": [
+      "U përmirësuan listat dhe filtrat e mangave dhe romaneve në ueb, si dhe përzgjedhja e vitit dhe sezonit për përshtatjet anime.",
+      "U përditësuan lidhjet e veprave origjinale dhe mostrave zyrtare për lexim, kopertinat e produkteve të mbështetura dhe shfaqja e renditjeve.",
+      "U përmirësuan ngarkimi automatik pas zgjedhjes së bibliotekës, përditësimi i listave dhe hapja e skedarëve të jashtëm të mbështetur.",
+      "U korrigjuan problemet e ruajtjes së gjendjes gjatë kthimit, shfaqjes shumëgjuhëshe, madhësisë së tekstit dhe lartësisë së menysë."
+    ],
+    "sr": [
+      "Побољшани су листе и филтери за веб-мангу и веб-романе, као и избор године и сезоне аниме адаптација.",
+      "Ажурирани су линкови ка изворним делима и званичним узорцима за читање, корице подржаних производа и приказ рангирања.",
+      "Побољшани су аутоматско учитавање након избора библиотеке, ажурирање листа и отварање подржаних спољних датотека.",
+      "Исправљени су проблеми са очувањем стања при повратку, вишејезичним приказом, величином текста и висином менија."
+    ],
+    "sr-Latn": [
+      "Poboljšani su liste i filteri za veb-mangu i veb-romane, kao i izbor godine i sezone anime adaptacija.",
+      "Ažurirani su linkovi ka izvornim delima i zvaničnim uzorcima za čitanje, korice podržanih proizvoda i prikaz rangiranja.",
+      "Poboljšani su automatsko učitavanje nakon izbora biblioteke, ažuriranje lista i otvaranje podržanih spoljnih datoteka.",
+      "Ispravljeni su problemi sa očuvanjem stanja pri povratku, višejezičnim prikazom, veličinom teksta i visinom menija."
+    ],
+    "sv": [
+      "Förbättrade listor och filter för webbmanga och webbromaner samt val av år och säsong för animeadaptioner.",
+      "Uppdaterade länkar till originalverk och officiella läsprov, omslag för produkter som stöds och visning av rankningar.",
+      "Förbättrad automatisk inläsning efter val av bibliotek, uppdatering av listor och öppning av externa filer som stöds.",
+      "Rättade problem med att bevara återgångsläge, flerspråkig visning, textstorlek och menyhöjd."
+    ],
+    "sw": [
+      "Orodha na vichujio vya manga na riwaya za wavuti, pamoja na uteuzi wa mwaka na msimu wa kazi zilizobadilishwa kuwa anime, vimeboreshwa.",
+      "Viungo vya kazi asilia na sampuli rasmi za kusoma, majalada ya bidhaa zinazotumika na uonyeshaji wa viwango vimesasishwa.",
+      "Upakiaji wa kiotomatiki baada ya kuchagua maktaba, kusasisha orodha na kufungua faili za nje zinazotumika vimeboreshwa.",
+      "Matatizo ya kuhifadhi hali ya kurudi, kuonyesha lugha nyingi, ukubwa wa maandishi na urefu wa menyu yamerekebishwa."
+    ],
+    "ta": [
+      "இணைய மங்கா மற்றும் இணைய நாவல் பட்டியல்கள், வடிப்பான்கள், அனிமே தழுவல்களின் ஆண்டு மற்றும் பருவத் தேர்வு மேம்படுத்தப்பட்டன.",
+      "மூலப் படைப்புகள் மற்றும் அதிகாரப்பூர்வ வாசிப்பு மாதிரிகளின் இணைப்புகள், ஆதரிக்கப்படும் தயாரிப்புகளின் அட்டைகள் மற்றும் தரவரிசைக் காட்சி புதுப்பிக்கப்பட்டன.",
+      "நூலகத்தைத் தேர்ந்தெடுத்தபின் தானாக ஏற்றுதல், பட்டியல் புதுப்பிப்பு மற்றும் ஆதரிக்கப்படும் வெளிப்புறக் கோப்புகளைத் திறத்தல் மேம்படுத்தப்பட்டன.",
+      "திரும்பும் நிலையைத் தக்கவைத்தல், பன்மொழிக் காட்சி, எழுத்தளவு மற்றும் மெனு உயரம் தொடர்பான சிக்கல்கள் சரிசெய்யப்பட்டன."
+    ],
+    "th": [
+      "ปรับปรุงรายการและตัวกรองมังงะและนิยายบนเว็บ รวมถึงการเลือกปีและซีซันของผลงานที่ดัดแปลงเป็นอนิเมะ",
+      "อัปเดตลิงก์ผลงานต้นฉบับและตัวอย่างอ่านอย่างเป็นทางการ ภาพปกสินค้าที่รองรับ และการแสดงอันดับ",
+      "ปรับปรุงการโหลดอัตโนมัติหลังเลือกคลังหนังสือ การอัปเดตรายการ และการเปิดไฟล์ภายนอกที่รองรับ",
+      "แก้ไขปัญหาการคงสถานะเมื่อย้อนกลับ การแสดงผลหลายภาษา ขนาดข้อความ และความสูงของเมนู"
+    ],
+    "tr": [
+      "Web manga ve web roman listeleri, filtreleri ve anime uyarlamaları için yıl/sezon seçimi iyileştirildi.",
+      "Özgün eserlere ve resmî okuma örneklerine bağlantılar, desteklenen ürünlerin kapakları ve sıralama gösterimleri güncellendi.",
+      "Kitaplık seçiminden sonra otomatik yükleme, liste güncellemeleri ve desteklenen haricî dosyaları açma iyileştirildi.",
+      "Geri dönüş durumunun korunması, çok dilli görüntüleme, metin boyutu ve menü yüksekliği sorunları düzeltildi."
+    ],
+    "uk": [
+      "Покращено списки й фільтри вебманґи та веброманів, а також вибір року й сезону аніме-адаптацій.",
+      "Оновлено посилання на оригінальні твори й офіційні ознайомчі уривки, обкладинки підтримуваних товарів і відображення рейтингів.",
+      "Покращено автоматичне завантаження після вибору бібліотеки, оновлення списків і відкриття підтримуваних зовнішніх файлів.",
+      "Виправлено проблеми зі збереженням стану під час повернення, багатомовним відображенням, розміром тексту й висотою меню."
+    ],
+    "ur": [
+      "ویب مانگا اور ویب ناول کی فہرستوں اور فلٹرز، اور انیمے میں ڈھالی گئی تخلیقات کے سال اور سیزن کے انتخاب کو بہتر بنایا گیا۔",
+      "اصل تخلیقات اور سرکاری مطالعے کے نمونوں کے لنکس، معاون مصنوعات کے سرورق اور درجہ بندی کے ڈسپلے کو اپ ڈیٹ کیا گیا۔",
+      "لائبریری منتخب کرنے کے بعد خودکار لوڈنگ، فہرست کی تازہ کاری اور معاون بیرونی فائلیں کھولنے کو بہتر بنایا گیا۔",
+      "واپسی کی حالت محفوظ رکھنے، کثیر لسانی ڈسپلے، متن کے سائز اور مینو کی اونچائی کے مسائل درست کیے گئے۔"
+    ],
+    "vi": [
+      "Cải thiện danh sách và bộ lọc manga, tiểu thuyết trên web cùng lựa chọn năm và mùa của các tác phẩm chuyển thể anime.",
+      "Cập nhật liên kết tác phẩm gốc và bản đọc thử chính thức, ảnh bìa sản phẩm được hỗ trợ và hiển thị thứ hạng.",
+      "Cải thiện tải tự động sau khi chọn thư viện, cập nhật danh sách và mở tệp bên ngoài được hỗ trợ.",
+      "Sửa lỗi giữ trạng thái khi quay lại, hiển thị đa ngôn ngữ, cỡ chữ và chiều cao menu."
+    ],
+    "zh-Hans": [
+      "改进网络漫画、网络小说的列表与筛选，以及动画化作品的年份和季度选择。",
+      "更新原作与官方试读链接、支持商品的封面和排名显示。",
+      "改进选择书库后的自动加载、列表刷新及受支持外部文件的打开。",
+      "修正返回状态保留、多语言显示、文字大小和菜单高度的问题。"
+    ],
+    "zh-Hant-HK": [
+      "改善網絡漫畫、網絡小說的列表與篩選，以及動畫化作品的年份和季度選擇。",
+      "更新原作與官方試讀連結、支援商品的封面和排名顯示。",
+      "改善選擇書庫後的自動載入、列表更新及開啟支援的外部檔案。",
+      "修正返回狀態保留、多語言顯示、文字大小和選單高度的問題。"
+    ],
+    "zh-Hant-TW": [
+      "改善網路漫畫、網路小說的清單與篩選，以及動畫化作品的年份和季度選擇。",
+      "更新原作與官方試閱連結、支援商品的封面和排名顯示。",
+      "改善選擇書庫後的自動載入、清單更新及開啟支援的外部檔案。",
+      "修正返回狀態保留、多語言顯示、文字大小和選單高度的問題。"
+    ]
+  },
+  "nativeSpeakerProofreading": false,
+  "scope": "UI/website news translation only; not work-body translation or overseas purchasing verification"
+}
