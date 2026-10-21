@@ -8,3 +8,9 @@ Validation: all 65 dictionaries have all 212 keys, no empty values or replacemen
 Native-speaker proofreading, translation of book bodies, foreign purchasing eligibility and unsupported external images are not verified by these UI tests.
 
 Deployment uses the existing combined-site Cloudflare Pages Direct Upload. Git push has no configured automatic deployment. Only the viewer subtree belongs to this repository; unrelated combined-site content is excluded. Local evidence and deployment IDs are recorded in the task handoff.
+
+Production deployment: 77e79b8e-a04c-4646-a61f-281ad272aad0
+
+Content commit: 5410555a06c3ab7836accd606d2fbd64e273f214
+
+Public checks: 134 HTTP byte matches; Japanese plus six representative locales in PC Chrome; GA4 test sends zero. Full local checks cover all 65 changed locales. Native-speaker proofreading remains unperformed.

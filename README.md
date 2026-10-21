@@ -5,7 +5,7 @@ Android書籍アプリ「ビュッ」の紹介・WEB作品カタログです。
 - 公開URL: https://esunastudio-viewer.pages.dev/viewer/
 - リポジトリ: `kancha4-wq/esunastudio-viewer` / `main`
 - このリポジトリのルートが、結合サイトの `/viewer/` に対応します。結合サイトのトップページ（別作品）は含めません。
-- 最新同期元の公開deployment: `3df22bf5-2f68-43a3-becf-7b0921c6de7e`（2026-10-21）。ソースとの対応は `SOURCE-MANIFEST.json`。
+- 最新同期元の公開deployment: `77e79b8e-a04c-4646-a61f-281ad272aad0`（2026-10-21）。ソースとの対応は `SOURCE-MANIFEST.json`。
 
 ## 共通カタログと国際対応
 
