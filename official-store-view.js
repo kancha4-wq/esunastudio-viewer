@@ -90,7 +90,7 @@ function coverFrame(p){const frame=el('div',undefined,'cover-frame'),c=p.cover,s
  if(s&&s.url===c?.url&&s.fetchedAt===c?.fetchedAt){frame.dataset.coverState='provider_placeholder';frame.append(el('span',s.label));}
  else if(c&&c.permission==='verified_rws_licensed'&&c.mediaApproved&&c.creditProvided&&c.productId===p.id&&c.fetchedAt<=Date.now()&&c.expiresAt>Date.now()){
   frame.dataset.coverState='ready';const a=link('',c.boundPurchaseUrl),img=el('img');img.src=c.url;img.alt=p.title;img.width=87;img.height=121;img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>{a.remove();frame.dataset.coverState='error';frame.append(el('span','画像読込失敗'));};a.append(img);frame.append(a);
- }else{frame.dataset.coverState=c?'unavailable':'unacquired';frame.append(el('span',c?'表紙の表示条件未確認':'表紙未取得'));}return frame;
+ }else{frame.dataset.coverState=c?'unavailable':'unacquired';frame.append(el('span',window.ByuHpCoverImages?window.ByuHpCoverImages.reason(p,'ja'):c?'表紙の表示条件未確認':'表紙未取得'));}return frame;
 }
 function cardFor(c,p,m,shelf){
  const card=el('article',undefined,'catalogue-card'+(c.uiStore==='kobo'?' has-cover':''));card.dataset.product=p.id;card.dataset.officialOrdinal=String(m.ordinal);if(m.rank!==null&&m.rank!==undefined)card.dataset.officialRank=String(m.rank);
