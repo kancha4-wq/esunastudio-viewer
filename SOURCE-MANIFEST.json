@@ -1,6 +1,6 @@
 {
   "publicBase": "https://esunastudio-viewer.pages.dev/viewer/",
-  "deploymentId": null,
+  "deploymentId": "db9b49b9-ad2d-4453-ae20-8dc5c9d5611b",
   "mapping": "repository root = production /viewer/; combined-site root excluded",
   "generatedUTC": "2026-10-21T07:10:37.596880+00:00",
   "fileCount": 2338,
@@ -2345,5 +2345,5 @@
     "zh-Hant-TW/index.html": "78c3694d7a156f58d0770182bede43ecfa28a250a946a04654be1520e7d788c4"
   },
   "previousDeploymentId": "80b741f7-d544-4ae1-98fd-bfc4e383f30f",
-  "publication": "Thumbnail candidate; inspect local publication-result for confirmed deployment"
+  "publication": "Production verified; source hashes match HTTP and browser image/news tests"
 }
