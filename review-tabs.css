@@ -1,0 +1,41 @@
+[hidden]{display:none!important}
+.skip{max-width:calc(100% - 32px);overflow-wrap:anywhere}.skip:not(:focus){top:0;transform:translateY(-150%)}.skip:focus{top:12px;transform:none}
+.review-banner{margin:0;padding:7px 18px;text-align:center;background:#fff0d6;color:#70431c;border-bottom:1px solid #e8cfac;font-size:12px;font-weight:700}
+.viewer-tab-wrap{background:#fbf7f0;border-bottom:1px solid var(--line,#ded6c9);padding:20px 18px}
+.viewer-tabs{display:grid;grid-template-columns:repeat(var(--tab-count,6),minmax(0,1fr));gap:8px;max-width:1120px;margin:auto}
+.viewer-tabs:not([data-ready]){display:none}
+.viewer-tabs button{appearance:none;min-width:0;min-height:50px;padding:12px 10px;border:1px solid #d9cbbd;border-radius:14px;background:#fffdf8;color:#594a40;font:inherit;font-size:14px;line-height:1.5;font-weight:700;overflow-wrap:anywhere;cursor:pointer}
+.viewer-tabs button[aria-selected=true]{background:#a14c1b;border-color:#a14c1b;color:white;box-shadow:0 3px 8px #73431c22}
+.viewer-tabs button:hover{border-color:#a14c1b}
+.viewer-tabs button:focus-visible,.viewer-panel:focus-visible{outline:3px solid #166d98;outline-offset:3px}
+.viewer-panel{min-width:0;scroll-margin-top:110px}
+.viewer-panel .hero{padding-top:44px}
+.viewer-panel .news-section{padding-top:32px}
+.viewer-panel .section:first-child{padding-top:44px}
+@media(max-width:760px){.viewer-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.viewer-tabs button{font-size:12px;padding:10px 6px;min-height:48px}.viewer-tab-wrap{padding:14px 18px}.viewer-panel .hero{padding-top:28px}}
+@media(prefers-reduced-motion:reduce){.viewer-panel{scroll-behavior:auto}}
+.current-release-context{display:block;font-weight:700;color:#644b37;margin:0 0 5px}
+.current-release-guide{max-width:1120px;margin:24px auto 0;padding:12px 20px;border-inline-start:4px solid #906b48;background:#f2eadd;font-weight:700;font-size:14px}
+.next-release{padding:44px 0 64px;background:#f4efe5;color:#352d25;line-height:1.9}
+.next-intro{max-width:850px;margin-bottom:28px}.next-intro h2{font-size:clamp(25px,4vw,38px)}.next-intro h2 span{font-size:.58em;display:block;margin-top:8px;color:#6c5744}
+.next-boundary{padding:18px 22px;background:#fff4db;border-inline-start:4px solid #a14c1b;border-radius:0 12px 12px 0;font-size:14px}.next-boundary strong{display:block}
+.next-copy,.next-checks{padding:30px;border:1px solid #d9cbbd;background:#fffdf8;border-radius:20px;margin-top:24px}
+.next-label{font-size:12px;font-weight:700;color:#795138;letter-spacing:.04em;margin-bottom:10px}.next-copy h3,.next-checks h3{font-size:clamp(22px,3vw,29px);margin:0 0 18px;line-height:1.5}
+.next-copy h4{font-size:19px;margin:12px 0}.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}.next-grid article{padding:22px;background:#f7f2e8;border-radius:16px;min-width:0}
+.next-status{display:inline-block;background:#e8eee5;color:#3e5734;font-size:12px;line-height:1.6;font-weight:700;padding:4px 10px;border-radius:8px}.next-status.design{background:#eee8f4;color:#614878}.next-support{padding-top:24px;border-top:1px solid #ded3c5}.next-payment{font-size:14px;padding:16px;background:#f6eee5;border-radius:10px}.next-checks{background:#ece8df}.next-checks ul{padding-inline-start:24px}.next-checks li{margin:12px 0}.next-release p,.next-release li{overflow-wrap:anywhere}.next-checks strong{color:#764218}
+@media(max-width:760px){.next-release{padding:28px 0 40px}.next-copy,.next-checks{padding:21px 18px}.next-grid{grid-template-columns:1fr}.next-grid article{padding:18px}.next-boundary{padding:15px}.next-release p,.next-release li{font-size:14px}.viewer-tabs button:last-child:nth-child(3n+1){grid-column:1/-1}.current-release-guide{margin:18px 18px 0;padding:10px 14px}}
+.next-summary-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.next-summary-links a{display:block;padding:10px 16px;min-height:44px;border:1px solid #c8a78a;border-radius:12px;font-weight:700;font-size:14px;background:#fbf1e4;color:#77401d;text-decoration:none}.next-summary-links a:focus-visible{outline:3px solid #166d98;outline-offset:3px}
+.next-amounts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.next-amounts span{text-align:center;border:1px solid #cfad8e;background:#fff2df;padding:18px 10px;border-radius:14px;font-weight:800;font-size:24px;color:#813e19}
+.next-release[dir="rtl"] .next-label{letter-spacing:normal}.next-amounts span{overflow-wrap:anywhere;unicode-bidi:plaintext}
+.next-checks summary,.current-guide-details>summary{cursor:pointer;min-height:48px;padding:12px 0;font-weight:700}.next-checks>summary{font-size:18px}.current-guide-details{max-width:1120px;margin:24px auto 40px;border:1px solid #d5c8b7;border-radius:18px;background:#f9f4eb;overflow:hidden}.current-guide-details>summary{padding:20px 24px;color:#65513e}.current-guide-details .section{padding:35px 0}.current-guide-details .current-release-guide{margin:0 24px 20px}.current-guide-details .wrap{max-width:100%;width:calc(100% - 48px)}
+@media(max-width:760px){.next-amounts{gap:7px}.next-amounts span{font-size:21px;padding:14px 5px}.current-guide-details{margin:20px 18px}.current-guide-details>summary{padding:17px}.current-guide-details .wrap{width:calc(100% - 30px)}.next-summary-links{display:grid;grid-template-columns:1fr}}
+
+/* Revision 4: one quiet disclosure; five feature-led tabs. */
+.feature-conditions{max-width:1080px;margin:24px auto 48px;border-top:1px solid #ded3c5;border-bottom:1px solid #ded3c5;font-size:14px}
+.feature-conditions>summary{padding:18px 20px;cursor:pointer;color:#66594f;min-height:48px}
+.conditions-content{padding:0 20px 16px;line-height:1.8}
+.conditions-content p{margin:12px 0;overflow-wrap:anywhere}
+.conditions-content b{font-weight:400}
+.condition-release{font-weight:700;color:#66594f;margin-top:24px!important}
+.feature-faq{padding-top:0;padding-bottom:32px}.feature-faq details{padding:14px 0;border-bottom:1px solid #ded3c5}.feature-faq summary{cursor:pointer}.feature-faq p{line-height:1.8}
+@media(max-width:760px){.viewer-tabs{grid-template-columns:repeat(6,minmax(0,1fr))}.viewer-tabs button{grid-column:span 2}.viewer-tabs button:nth-child(n+4){grid-column:span 3}.feature-conditions{margin:20px 18px 32px}}

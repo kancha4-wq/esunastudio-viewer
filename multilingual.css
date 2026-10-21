@@ -1,0 +1,142 @@
+.draft-banner{margin:0;padding:8px 18px;background:#fff0cb;border-bottom:1px solid #e0bf75;text-align:center;font:600 12px/1.6 Arial,sans-serif;direction:ltr}
+.draft-banner a{margin-inline-start:12px}
+.multilingual-language{position:relative;max-width:1120px;margin:10px auto;padding:0 18px;display:flex;justify-content:flex-end;z-index:8}
+.locale-picker{position:relative;max-width:100%;font-size:14px}
+.locale-picker summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #c3c6ba;border-radius:10px;background:#fff;min-height:44px;overflow-wrap:anywhere}
+.locale-picker summary::-webkit-details-marker{display:none}
+.locale-picker summary::after{content:'⌄';font:16px Arial;margin-inline-start:8px}
+.locale-mark{width:26px;height:20px;object-fit:contain;flex:none}
+.locale-choices{position:absolute;inset-inline-end:0;top:calc(100% + 8px);width:min(810px,calc(100vw - 36px));max-height:min(65vh,620px);overflow:auto;padding:12px;border:1px solid #ddd1bf;border-radius:14px;box-shadow:0 16px 45px #29282225;background:#fffaf2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;direction:ltr}
+.locale-choices a{display:flex;align-items:center;gap:10px;padding:10px;min-height:48px;border:1px solid transparent;border-radius:8px;text-decoration:none;line-height:1.55;overflow-wrap:anywhere;font-size:14px;color:#292822}
+.locale-choices a[aria-current='page']{background:#e5f2eb;border-color:#b7d3c5;font-weight:800}
+.locale-choices a:hover{background:#ffe9d5}
+.locale-choices bdi{min-width:0;flex:1}
+html[dir='rtl'] .locale-choices{left:0;right:auto}
+.localized-page .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:44px;align-items:start}
+.localized-page .hero{padding-top:36px}
+.localized-page .hero h1{font-size:clamp(32px,4.5vw,56px);line-height:1.45;letter-spacing:normal;overflow-wrap:anywhere}
+.localized-page .hero-lead{font-size:19px;line-height:1.8}
+.localized-page .hero-purpose{font-size:14px;line-height:1.8}
+.localized-page .release-note{padding:14px 16px;border-inline-start:3px solid #c74a14;background:#fff2dd;font-size:14px}
+.localized-page .phones{direction:ltr;transform:none;align-items:flex-start;padding:0 8px}
+.localized-page .phone{width:calc((100% - 14px)/2);flex:none;transform:none}
+.localized-page .phone:first-child,.localized-page .phone:last-child{transform:none}
+.localized-page .phone img{height:auto;width:100%}
+.localized-page .hero-visual{min-width:0;padding:12px 6px 0}
+.localized-page .hero-visual:before{inset:8% 0 5%}
+.localized-page .hero-visual figcaption{margin-top:22px}
+.localized-page .feature-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+.localized-page .feature-strip div{font-size:13px;overflow-wrap:anywhere}
+.localized-page :is(h2,h3,.eyebrow){letter-spacing:normal;overflow-wrap:anywhere}
+.localized-page .number{direction:ltr;unicode-bidi:isolate}
+.localized-page .split{align-items:center;gap:48px}
+.localized-page .single-shot img{max-height:540px;width:auto;margin-inline:auto}
+.localized-page .button{white-space:normal;max-width:100%;text-align:center;line-height:1.6;overflow-wrap:anywhere}
+.localized-page .main-nav{flex-wrap:wrap;justify-content:flex-end;gap:12px}
+.localized-page .price-card{min-width:0}
+.localized-page .price-card p{overflow-wrap:anywhere}
+.localized-page .price-region{font-size:14px}
+.store-language-note{font-size:12px;margin:12px 0;color:#655f56}
+.localized-page .site-footer a{overflow-wrap:anywhere}
+.localized-page .footer-links{flex-wrap:wrap;gap:16px}
+html[dir='rtl'] .localized-page{direction:rtl;text-align:right;line-height:2}
+html[dir='rtl'] :is(.localized-page .brand,.localized-page .product-name){direction:ltr;unicode-bidi:isolate;text-align:left}
+html[dir='rtl'] .localized-page .hero h1{line-height:1.7}
+html[dir='rtl'] :is(.localized-page h2,.localized-page h3){line-height:1.8}
+html[dir='rtl'] .localized-page .price-card{ text-align:right }
+@media(max-width:800px){.locale-choices{grid-template-columns:repeat(2,minmax(0,1fr))}.localized-page .main-nav a:not(.nav-cta){display:none}.localized-page .header-inner{gap:12px}}
+@media(max-width:760px){.localized-page .hero-grid,.localized-page .split{grid-template-columns:minmax(0,1fr);gap:26px}.localized-page .hero{padding-top:28px}.localized-page .wrap{width:calc(100% - 36px)}.localized-page .hero-visual{width:100%;max-width:460px;margin:auto}.localized-page .phones{gap:10px}.localized-page .phone{width:calc((100% - 10px)/2)}.localized-page .feature-strip div{padding:14px 9px}.localized-page .price-grid{grid-template-columns:minmax(0,1fr)}.localized-page .main-nav .nav-cta{display:flex;font-size:11px;padding:7px 10px}.localized-page .brand{font-size:25px}.localized-page .section{padding:50px 0}.localized-page .single-shot img{max-height:470px}}
+@media(max-width:430px){.locale-choices{grid-template-columns:minmax(0,1fr)}.localized-page .hero h1{font-size:32px}.localized-page .hero-lead{font-size:17px}.localized-page .main-nav{max-width:190px}.localized-page .nav-cta{max-width:180px}.draft-banner{font-size:11px}}
+
+@font-face{font-family:"Byu HP am";src:url("/viewer/assets/ui-fonts/byu-ui-am-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP am";src:url("/viewer/assets/ui-fonts/byu-ui-am-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ar";src:url("/viewer/assets/ui-fonts/byu-ui-ar-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ar";src:url("/viewer/assets/ui-fonts/byu-ui-ar-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP bn";src:url("/viewer/assets/ui-fonts/byu-ui-bn-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP bn";src:url("/viewer/assets/ui-fonts/byu-ui-bn-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP he";src:url("/viewer/assets/ui-fonts/byu-ui-he-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP he";src:url("/viewer/assets/ui-fonts/byu-ui-he-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP hy";src:url("/viewer/assets/ui-fonts/byu-ui-hy-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP hy";src:url("/viewer/assets/ui-fonts/byu-ui-hy-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ka";src:url("/viewer/assets/ui-fonts/byu-ui-ka-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ka";src:url("/viewer/assets/ui-fonts/byu-ui-ka-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP km";src:url("/viewer/assets/ui-fonts/byu-ui-km-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP km";src:url("/viewer/assets/ui-fonts/byu-ui-km-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP lo";src:url("/viewer/assets/ui-fonts/byu-ui-lo-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP lo";src:url("/viewer/assets/ui-fonts/byu-ui-lo-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP my";src:url("/viewer/assets/ui-fonts/byu-ui-my-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP my";src:url("/viewer/assets/ui-fonts/byu-ui-my-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ne";src:url("/viewer/assets/ui-fonts/byu-ui-ne-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ne";src:url("/viewer/assets/ui-fonts/byu-ui-ne-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP si";src:url("/viewer/assets/ui-fonts/byu-ui-si-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP si";src:url("/viewer/assets/ui-fonts/byu-ui-si-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ta";src:url("/viewer/assets/ui-fonts/byu-ui-ta-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP ta";src:url("/viewer/assets/ui-fonts/byu-ui-ta-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP th";src:url("/viewer/assets/ui-fonts/byu-ui-th-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Byu HP th";src:url("/viewer/assets/ui-fonts/byu-ui-th-800.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+html[lang="ja"],bdi[lang="ja"]{font-family:"Yu Gothic",Meiryo,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="en"],bdi[lang="en"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="es"],bdi[lang="es"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="zh-Hans"],bdi[lang="zh-Hans"]{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="zh-Hant-TW"],bdi[lang="zh-Hant-TW"]{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="zh-Hant-HK"],bdi[lang="zh-Hant-HK"]{font-family:"Noto Sans HK","Microsoft JhengHei",sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ko"],bdi[lang="ko"]{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="pt-BR"],bdi[lang="pt-BR"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="pt-PT"],bdi[lang="pt-PT"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="fr"],bdi[lang="fr"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="de"],bdi[lang="de"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="it"],bdi[lang="it"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="id"],bdi[lang="id"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="hi"],bdi[lang="hi"]{font-family:"Byu HP ne",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="nl"],bdi[lang="nl"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sw"],bdi[lang="sw"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ms"],bdi[lang="ms"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="tr"],bdi[lang="tr"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="vi"],bdi[lang="vi"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="fil"],bdi[lang="fil"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ru"],bdi[lang="ru"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="uk"],bdi[lang="uk"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="pl"],bdi[lang="pl"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="cs"],bdi[lang="cs"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sk"],bdi[lang="sk"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sl"],bdi[lang="sl"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ro"],bdi[lang="ro"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="hr"],bdi[lang="hr"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sr"],bdi[lang="sr"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sr-Latn"],bdi[lang="sr-Latn"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="bg"],bdi[lang="bg"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="be"],bdi[lang="be"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="mk"],bdi[lang="mk"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="kk"],bdi[lang="kk"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ky"],bdi[lang="ky"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="mn"],bdi[lang="mn"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="da"],bdi[lang="da"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sv"],bdi[lang="sv"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="fi"],bdi[lang="fi"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="is"],bdi[lang="is"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="et"],bdi[lang="et"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="lv"],bdi[lang="lv"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="lt"],bdi[lang="lt"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="sq"],bdi[lang="sq"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="el"],bdi[lang="el"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="hu"],bdi[lang="hu"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="af"],bdi[lang="af"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ca"],bdi[lang="ca"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="az"],bdi[lang="az"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="hy"],bdi[lang="hy"]{font-family:"Byu HP hy",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ka"],bdi[lang="ka"]{font-family:"Byu HP ka",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="th"],bdi[lang="th"]{font-family:"Byu HP th",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="bn"],bdi[lang="bn"]{font-family:"Byu HP bn",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ne"],bdi[lang="ne"]{font-family:"Byu HP ne",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ta"],bdi[lang="ta"]{font-family:"Byu HP ta",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="am"],bdi[lang="am"]{font-family:"Byu HP am",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="km"],bdi[lang="km"]{font-family:"Byu HP km",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="lo"],bdi[lang="lo"]{font-family:"Byu HP lo",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="my"],bdi[lang="my"]{font-family:"Byu HP my",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="si"],bdi[lang="si"]{font-family:"Byu HP si",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ar"],bdi[lang="ar"]{font-family:"Byu HP ar",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="he"],bdi[lang="he"]{font-family:"Byu HP he",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="fa"],bdi[lang="fa"]{font-family:"Byu HP ar",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="ur"],bdi[lang="ur"]{font-family:"Byu HP ar",Arial,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="nb"],bdi[lang="nb"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}
+html[lang="nn"],bdi[lang="nn"]{font-family:Arial,system-ui,sans-serif;font-style:normal;letter-spacing:normal}

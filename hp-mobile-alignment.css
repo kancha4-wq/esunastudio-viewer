@@ -1,0 +1,67 @@
+/* Local review candidate: match the current Android catalogue controls. */
+.app-catalogue-demo .kind-switch button,
+.app-catalogue-demo .store-switch button,
+.app-catalogue-demo .shelf-switch button {
+  min-height: 44px;
+  line-height: 1.35;
+}
+.app-catalogue-demo .store-switch { flex-wrap: wrap; overflow: visible; }
+.app-catalogue-demo .store-switch button { flex: 1 1 136px; white-space: normal; min-width: 0; }
+.app-catalogue-demo .shelf-switch { flex-wrap: wrap; }
+.app-catalogue-demo .shelf-switch button { flex: 1 1 100px; clip-path: none; }
+.app-catalogue-demo .catalogue-tools input,
+.app-catalogue-demo .catalogue-tools select,
+.app-catalogue-demo .official-store-tools input,
+.app-catalogue-demo .official-store-tools select { min-height: 44px; box-sizing: border-box; }
+
+.app-catalogue-demo .normal-title-panel { min-width: 0; }
+.app-catalogue-demo .normal-title-panel h2 { margin: 0 0 12px; font-size: clamp(1.2rem, 2vw, 1.5rem); }
+.app-catalogue-demo .normal-title-panel > p { line-height: 1.55; overflow-wrap: anywhere; }
+.app-catalogue-demo .normal-title-search { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.app-catalogue-demo .normal-title-search input { flex: 1 1 220px; min-width: 0; }
+.app-catalogue-demo .normal-title-search select { flex: 1 1 170px; min-width: 0; }
+.app-catalogue-demo .normal-title-search input,
+.app-catalogue-demo .normal-title-search select,
+.app-catalogue-demo .normal-title-search button { box-sizing: border-box; min-height: 44px; margin: 0; padding: 8px 10px; max-width: 100%; font: inherit; }
+.app-catalogue-demo .normal-title-search button { border: 1px solid #54748a; background: #fff; color: #194a65; }
+.app-catalogue-demo .normal-title-size-row { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0 8px; min-width: 0; padding: 4px 0; color: #24455a; font-size: .875rem; }
+.app-catalogue-demo .normal-title-size-segment { display: flex; flex-wrap: nowrap; justify-content: flex-end; }
+.app-catalogue-demo .normal-title-size-segment button { min-width: 48px; min-height: 44px; padding: 5px 8px; margin: 0; border: 1px solid #a9adb1; border-radius: 0; background: #fff; color: #62666b; font-size: .9rem; }
+.app-catalogue-demo .normal-title-size-segment button[aria-pressed=true] { background: #4b535a; color: #fff; }
+.app-catalogue-demo .normal-title-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.app-catalogue-demo .normal-title-card { min-width: 0; padding: 12px; background: #fff; border: 1px solid #cbdbe4; border-radius: 3px; overflow-wrap: anywhere; }
+.app-catalogue-demo .normal-title-headline { display: grid; grid-template-columns: minmax(0,1fr) 44px; gap: 8px; align-items: start; }
+.app-catalogue-demo .normal-title-headline h3 { min-width: 0; margin: 0; font-size: 1rem; line-height: 1.5; }
+.app-catalogue-demo .normal-title-external { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; box-sizing: border-box; border: 1px solid #3d879c; border-radius: 3px; color: #215b75; background: #f1fcff; font-size: 1.4rem; text-decoration: none; }
+.app-catalogue-demo .normal-title-card p { margin: 5px 0; font-size: .875rem; line-height: 1.55; }
+.app-catalogue-demo .normal-title-info { margin-top: 7px; }
+.app-catalogue-demo .normal-title-info summary { display: inline-flex; min-height: 44px; align-items: center; cursor: pointer; padding: 5px 12px; border: 1px solid #7e9eaf; border-radius: 3px; color: #24536b; box-sizing: border-box; }
+.app-catalogue-demo .normal-title-info[open] { border-top: 1px solid #d8e6ee; }
+.app-catalogue-demo .normal-title-product { display: inline-flex; min-height: 44px; align-items: center; margin-top: 4px; padding: 6px 10px; }
+.app-catalogue-demo .normal-title-paging { display: grid; grid-template-columns: minmax(56px,1fr) minmax(70px,2fr) minmax(56px,1fr); align-items: center; gap: 5px; padding: 6px; margin-top: 10px; background: #f3f8fb; }
+.app-catalogue-demo .normal-title-paging button { min-width: 0; min-height: 44px; padding: 5px 8px; margin: 0; overflow-wrap: anywhere; }
+.app-catalogue-demo .normal-title-paging .normal-title-page-badge { justify-self: center; width: 100%; max-width: 190px; background: #e7f7ff; color: #24455a; }
+.app-catalogue-demo .normal-title-paging button:disabled { opacity: .5; cursor: default; }
+.app-catalogue-demo .normal-title-panel :focus-visible { outline: 3px solid #ed9308; outline-offset: 2px; }
+@media (max-width: 740px) {
+  .app-catalogue-demo .normal-title-results { grid-template-columns: minmax(0,1fr); }
+  .app-catalogue-demo .normal-title-card { padding: 10px; }
+}
+@media (max-width: 260px) {
+  .app-catalogue-demo .normal-title-size-row { justify-content: stretch; }
+  .app-catalogue-demo .normal-title-size-row > span { flex: 1 0 100%; }
+  .app-catalogue-demo .normal-title-size-segment { flex-direction: column; margin-left: auto; }
+}
+
+/* Kobo anime work entrances use the same touch target language as the normal title cards. */
+.app-catalogue-demo .catalogue-work-scope { padding: 10px 12px; margin: 0 0 10px; background: #fff8e9; border: 1px solid #d3b985; line-height: 1.55; }
+.app-catalogue-demo .catalogue-work-card { display: block !important; min-width: 0; overflow-wrap: anywhere; }
+.app-catalogue-demo .catalogue-work-card .catalogue-card-body { display: block; width: auto; min-width: 0; position: relative; padding-right: 56px; }
+.app-catalogue-demo .catalogue-work-card h3 { margin: 0 0 5px; line-height: 1.5; }
+.app-catalogue-demo .catalogue-work-card p { margin: 5px 0; line-height: 1.55; }
+.app-catalogue-demo .catalogue-work-card .catalogue-open { width: 44px; height: 44px; min-width: 44px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; }
+.app-catalogue-demo .catalogue-work-card .catalogue-item-details summary { min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; cursor: pointer; }
+.app-catalogue-demo .catalogue-work-card .catalogue-item-details li a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
+.app-catalogue-demo .catalogue-paging:has(.catalogue-page-badge) { display: grid; grid-template-columns: minmax(56px,1fr) minmax(70px,2fr) minmax(56px,1fr); gap: 5px; align-items: center; }
+.app-catalogue-demo .catalogue-paging button { min-width: 0; min-height: 44px; }
+.app-catalogue-demo .catalogue-paging .catalogue-page-badge { width: 100%; max-width: 190px; justify-self: center; }

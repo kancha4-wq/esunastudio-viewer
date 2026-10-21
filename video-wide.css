@@ -1,0 +1,17 @@
+/* Landscape promotional videos, both languages. */
+#video .video-layout {display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+#video .video-copy {max-width:54em}
+#video .video-player {width:100%;max-width:1120px;margin:0 auto}
+#video .video-player video {width:100%;height:auto;aspect-ratio:16/9;border-radius:16px}
+#video .video-notes {max-width:54em}
+#video .video-credits {margin-top:16px}
+@media(max-width:760px){#video .video-layout {gap:20px} #video .video-player {max-width:100%} #video .video-player video {border-radius:8px}}
+
+/* Same dimensions as the former native video; YouTube loads on request. */
+#video .video-frame {width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#151515}
+#video .video-load {position:relative;display:block;width:100%;height:100%;padding:0;border:0;border-radius:inherit;background:transparent;cursor:pointer}
+#video .video-load img {display:block;width:100%;height:100%;object-fit:cover}
+#video .video-load-play {position:absolute;left:12px;bottom:12px;display:grid;place-items:center;width:44px;height:32px;border-radius:4px;background:rgba(0,0,0,.75);color:#fff;font-size:17px}
+#video .video-load:focus-visible {outline:3px solid #184e9e;outline-offset:-3px}
+#video .video-frame iframe {display:block;width:100%;height:100%;border:0}
+@media(max-width:760px){#video .video-frame {border-radius:8px}}
