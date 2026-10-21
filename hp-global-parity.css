@@ -1,0 +1,26 @@
+/* Shared structure, locale-safe long labels and RTL; locale-aware layout. */
+html:not([lang=ja]) body{overflow-wrap:anywhere}
+.parity-library-introduction{min-width:0;max-width:100%}
+.parity-library-introduction .hero{padding:24px 0}
+.parity-library-introduction .hero h1{font-size:clamp(26px,3.2vw,42px);line-height:1.45}
+.parity-library-introduction .wrap{width:100%;max-width:100%;padding-inline:0}
+.parity-library-introduction img{max-width:100%;height:auto}
+.parity-library-introduction .hero-grid,.parity-library-introduction .split{min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.parity-library-introduction .hero-grid>*,.parity-library-introduction .split>*{min-width:0}
+.catalogue-card,.catalogue-card-body,.official-store-tools,.catalogue-tools,.catalogue-title-row{min-width:0}
+.catalogue-tools input,.catalogue-tools select,.official-store-tools input,.official-store-tools select{max-width:100%;min-width:0}
+.byu-wide-banner .banner-heading{min-width:0}.banner-copy strong{font-size:clamp(16px,1.8vw,25px)}
+.byu-wide-banner .banner-actions>a{white-space:normal;min-width:0;max-width:230px;overflow-wrap:anywhere}
+.byu-tall-banner .rail-feature-stack{overflow:auto;min-height:0}.byu-tall-banner .rail-feature-stack p{font-size:14px;line-height:1.6}
+html[dir=rtl] body{padding-right:0;padding-left:calc(var(--rail-width) + var(--layout-gap) + 20px)}
+html[dir=rtl] .byu-tall-banner{right:auto;left:20px;border-left:1px solid #dfc39e;border-right:4px solid #c26015}
+html[dir=rtl] .locale-choices{left:0;right:auto}
+@media(max-width:1100px){html[dir=rtl] body{padding-left:0}html[dir=rtl] .byu-tall-banner{position:relative;left:auto;right:auto}.banner-actions{flex-wrap:wrap}.banner-copy{display:none}}
+@media(max-width:760px){.parity-library-introduction .hero-grid,.parity-library-introduction .split{grid-template-columns:1fr}.parity-library-introduction .hero h1{font-size:28px}.parity-library-introduction .hero{padding:16px 0}.parity-library-introduction .price-grid{grid-template-columns:1fr}.banner-inner{align-items:start}.byu-wide-banner .brand{min-width:0}.banner-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.catalogue-title-row{flex-wrap:wrap}.catalogue-card{overflow-wrap:anywhere}}
+
+#next-overview .parity-library-introduction .hero-grid{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;gap:24px;align-items:center}#next-overview .parity-library-introduction .hero-visual{display:block!important;width:100%;max-width:none;padding:0 8px}#next-overview .parity-library-introduction .phones{height:380px;display:flex;align-items:center;justify-content:center;gap:12px}#next-overview .parity-library-introduction .phone{width:46%!important;max-width:170px!important;transform:none!important}@media(max-width:850px){#next-overview .parity-library-introduction .hero-grid{grid-template-columns:minmax(0,1fr)!important}#next-overview .parity-library-introduction .phones{height:300px}#next-overview .parity-library-introduction .phone{max-width:135px!important}}
+
+@media(min-width:1101px){html[dir=rtl] body{direction:rtl;padding-inline:20px}html[dir=rtl] .byu-tall-banner{left:auto;right:auto}}
+
+/* Give enlarged labels their own row instead of forcing narrow character columns. */
+@media(max-width:760px){.byu-wide-banner .banner-inner{display:flex;flex-wrap:wrap;gap:10px}.byu-wide-banner .banner-heading{flex:1 0 100%}.byu-wide-banner .banner-actions{width:100%;max-width:none;display:flex;justify-content:flex-end;gap:8px}.byu-wide-banner .banner-actions>.banner-language{flex:1 1 10em;max-width:none;min-width:0}.byu-wide-banner .banner-actions>a{flex:1 1 8em;max-width:none;white-space:normal;word-break:normal;overflow-wrap:normal}}
