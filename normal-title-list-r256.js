@@ -33,7 +33,7 @@
   }
   function card(row){
     const c=el('article');c.className='normal-title-card';c.dataset.titleKey=row.key;
-    c.append(el('h3',row.title),el('p',row.mediaSourceText||'分類未確認'));
+    c.append(Object.assign(el('h3',row.title),{lang:'ja',dir:'auto',translate:true}),el('p',row.mediaSourceText||'分類未確認'));
     if(row.savedReleasedDate)c.append(el('p','保存資料内の電子発売日: '+row.savedReleasedDate));
     if(row.savedUpcomingDate)c.append(el('p','保存資料内の発売予定日: '+row.savedUpcomingDate));
     const link=row.links?.[storeKey()];
@@ -50,7 +50,7 @@
   function mobileCard(row){
     const c=el('article');c.className='normal-title-card';c.dataset.titleKey=row.key;
     const link=row.links?.[storeKey()],brand=store()==='kobo'?'Kobo':'Amazon';
-    const head=el('div');head.className='normal-title-headline';head.append(el('h3',row.title));
+    const head=el('div');head.className='normal-title-headline';head.append(Object.assign(el('h3',row.title),{lang:'ja',dir:'auto',translate:true}));
     if(link?.destination){const a=el('a','↗');a.href=link.destination;a.rel='sponsored noopener';a.target='_blank';a.dataset.linkKind=link.kind||'';a.className='normal-title-external';a.setAttribute('aria-label',row.title+' - '+brand+'で開く');head.append(a);}
     c.append(head);
     const kind=link?.kind||row.linkKind||'';

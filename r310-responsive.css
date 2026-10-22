@@ -19,3 +19,6 @@
 html[dir=rtl] .catalogue-tools,html[dir=rtl] .catalogue-actions{direction:rtl}
 @media(max-width:760px){.catalogue-tools>*{max-inline-size:100%}.catalogue-tools{align-items:stretch}.catalogue-paging{position:static}.catalogue-card-body{max-inline-size:100%}}
 @media(max-width:400px){.catalogue-tools select{inline-size:100%}.catalogue-actions{display:flex}.catalogue-actions a{flex:1 1 8rem}}
+
+/* Browser translation guidance; no automatic translation service. */
+.browser-translation-help{box-sizing:border-box;max-width:76rem;margin:1rem auto;padding:.65rem 1rem;overflow-wrap:anywhere;line-height:1.5}.browser-translation-help summary{cursor:pointer}.browser-translation-help p{margin:.65rem 0 0}
