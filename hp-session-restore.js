@@ -14,7 +14,10 @@
       const titleSaved=(()=>{try{return JSON.parse(localStorage.getItem('byu-normal-title-state-v1')||'null')?.active===true;}catch{return false;}})();
       const loaded=root.dataset.ready==='true'&&root.dataset.loading!=='true';
       if((!loaded||titleSaved&&root.dataset.titleMode!=='true')&&++attempts<100){setTimeout(apply,100);return;}
-      scrollTo(0,Math.min(target,Math.max(0,document.documentElement.scrollHeight-innerHeight)));
+      // Explicit update links take precedence over a previous browsing position.
+      let newsAnchor=null;try{if(location.hash.startsWith('#news-'))newsAnchor=document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch{}
+      if(newsAnchor)newsAnchor.scrollIntoView({block:'start'});
+      else scrollTo(0,Math.min(target,Math.max(0,document.documentElement.scrollHeight-innerHeight)));
       if(attempts++<8&&scrollY<target&&document.documentElement.scrollHeight-innerHeight<target){setTimeout(apply,180);return;}
       restoring=false;save();
     };
