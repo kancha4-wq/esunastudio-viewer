@@ -18,3 +18,6 @@
 .news-chevron{font-size:22px;line-height:1;flex:none}
 .news-archive[open] .news-list{margin-top:10px}
 @media(max-width:760px){.news-section{padding-top:24px}.news-card{padding:20px;border-radius:16px}.news-list>li{grid-template-columns:1fr;gap:5px;padding:16px 0}.news-list time{padding:0}.news-card h2{font-size:22px}.news-archive summary{font-size:13px;line-height:1.65}}
+
+/* Distinct official profile and user-initiated update sharing actions. */
+.news-social a,.news-share{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.35em;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}.news-share{padding:.55em .75em;border:1px solid currentColor;border-radius:.4em;text-decoration:none}.news-list>li[id]{scroll-margin-top:11rem}
