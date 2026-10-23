@@ -50,7 +50,45 @@ async function installVerifiedManga(d){
  return d;
 }
 
-const load=()=>assetPromise||(assetPromise=Promise.all(['/viewer/official-store-shelves.json?v=ranking-20261023','/viewer/amazon-observed-rankings-20261019.json','/viewer/amazon-observed-rankings-diff-20261019.json'].map(path=>fetch(path,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Shelf data unavailable: '+path);return r.json();}))).then(([d,observed,diff])=>{if(observed.schema!=='amazon_official_ranking_observation_v1'||diff.schema!=='amazon_official_ranking_diff_v1'||diff.baseSha256!==observed.sourceSha256||diff.singleInstantSnapshot!==false)throw Error('Unexpected ranking observation');for(const [id,media,title]of observedDefs){const base=observed.items.filter(x=>x.shelf===id).sort((a,b)=>a.officialRank-b.officialRank),later=diff.items.filter(x=>x.shelf===id).sort((a,b)=>a.officialRank-b.officialRank);if(base.length!==30||base.some((x,i)=>x.officialRank!==i+1||!x.asin||!x.title||!x.sourceUrl||!x.observedAtUtc)||later.some(x=>x.officialRank<31||x.officialRank>100||!x.asin||!x.title||!x.sourceUrl||x.observedWindowUtc?.length!==2))throw Error('Incomplete observed ranking: '+id);const members=[...base,...later],ranks=members.map(x=>x.officialRank);if(new Set(ranks).size!==members.length)throw Error('Repeated rank: '+id);d.collections.push({sectionKey:'amazon-observed:'+id,store:'amazon',mediaScope:media,title,sourceUrl:base[0].sourceUrl,observedAtUtc:base[0].observedAtUtc,observedCount:members.length,observationOnly:true,members});}return installVerifiedManga(d).then(value=>asset=value);}));
+
+// Current public first-page snapshots; immutable product facts remain in their original catalogue.
+function validateCurrentAmazonRanks(value,d){
+ const defs={manga_free:['amazon-common:free-manga-ranking','manga',50],manga_paid:['amazon-public-general:paid-manga-top100:2293143051','manga',49],manga_new:['amazon-observed:manga_new','manga',47],light_novel_free:['amazon-observed:light_novel_free','novel',50],light_novel_paid:['amazon-observed:light_novel_paid','novel',49]},plans=[],seen=new Set();
+ if(value.schema!=='byu-hp-amazon-ranking-observations-v1'||value.sourceDate!=='2026-10-23'||value.snapshots?.length!==5||value.sourceObservationOnly!==true||value.imagesOrPriceIncluded!==false)throw Error('Unapproved current ranking scope');
+ for(const snap of value.snapshots){
+  const def=defs[snap.shelfKey],shelf=def&&d.collections.find(x=>x.sectionKey===def[0]);
+  if(!def||seen.has(snap.shelfKey)||!shelf||shelf.store!=='amazon'||shelf.mediaScope!==def[1]||snap.store!=='amazon'||snap.media!==def[1]||snap.rows?.length!==def[2])throw Error('Current ranking shelf mismatch');
+  seen.add(snap.shelfKey);
+  const expectedSource=snap.shelfKey==='manga_free'?'https://www.amazon.co.jp/gp/bestsellers/digital-text/2293143051/ref=zg_bs?ie=UTF8&tf=1':snap.shelfKey==='manga_paid'?'https://www.amazon.co.jp/bestsellers/digital-text/2293143051/':snap.shelfKey==='manga_new'?'https://www.amazon.co.jp/gp/new-releases/digital-text/2293143051':'https://www.amazon.co.jp/gp/bestsellers/digital-text/2410280051/ref=zg_bs'+(snap.shelfKey==='light_novel_free'?'?ie=UTF8&tf=1':'');
+  const acquired=Date.parse(snap.observedAtUTC),coverage=snap.coverage,ids=new Set(),ranks=new Set();
+  if(snap.sourceUrl!==expectedSource||!Number.isFinite(acquired)||acquired<Date.parse(shelf.observedAtUtc)||!snap.observedAtUTC.startsWith('2026-10-23T')||!/^[a-f0-9]{64}$/.test(snap.sourceHtmlSha256)||coverage?.page!==1||coverage.fullTop100!==false||coverage.observedRows!==def[2]||coverage.sourceVisibleCardCount!==def[2]||snap.imageOrPriceData!==false||snap.newSkuAdmitted!==false||snap.productDetailVerified!==false)throw Error('Current ranking provenance mismatch');
+  const members=snap.rows.map(row=>{
+   const canonical='https://www.amazon.co.jp/dp/'+row.productId;
+   if(row.store!=='amazon'||!/^[A-Z0-9]{10}$/.test(row.productId)||row.url!==canonical||!row.title?.trim()||row.title.includes('\ufffd')||!Number.isInteger(row.rank)||row.rank<1||row.rank>100||ids.has(row.productId)||ranks.has(row.rank)||row.observedAtUTC!==snap.observedAtUTC||row.sourceUrl!==snap.sourceUrl||row.sourceSha256!==snap.sourceHtmlSha256||row.later!==false)throw Error('Invalid current ranking row');
+   ids.add(row.productId);ranks.add(row.rank);
+   const prior=(shelf.knownMembers||shelf.members).find(x=>(x.productId||x.asin)===row.productId);if(prior&&(prior.url||prior.productUrl)!==canonical)throw Error('Product link identity would change');
+   return{asin:row.productId,officialRank:row.rank,title:row.title,productUrl:canonical,sourceUrl:row.sourceUrl,observedAtUtc:row.observedAtUTC,sourceSha256:row.sourceSha256};
+  }).sort((a,b)=>a.officialRank-b.officialRank);
+  const absent=Array.from({length:100},(_,i)=>i+1).filter(x=>!ranks.has(x));if(JSON.stringify(absent)!==JSON.stringify(coverage.unobservedRanks))throw Error('Incorrect observed coverage');
+  plans.push({shelf,snap,members});
+ }
+ return plans;
+}
+async function installCurrentAmazon(d){
+ await installVerifiedManga(d);
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4000);
+ try{
+  const response=await fetch('/viewer/amazon-ranking-observations-20261023.json?v=amazon-ranks-20261023',{cache:'no-cache',signal:controller.signal});if(!response.ok)throw Error('Current rankings unavailable');
+  const raw=await response.arrayBuffer(),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',raw))].map(x=>x.toString(16).padStart(2,'0')).join('');if(hash!=='f88d84d4fb4bfad638aeb21112d83ec12c9a28523b120a249288d8cfc5a1f393')throw Error('Current ranking hash mismatch');
+  const plans=validateCurrentAmazonRanks(JSON.parse(new TextDecoder().decode(raw)),d);
+  for(const {shelf,snap,members}of plans){const previous={members:shelf.members,observedAtUtc:shelf.observedAtUtc,sourceUrl:shelf.sourceUrl,coverage:shelf.coverage};Object.assign(shelf,{knownMembers:shelf.knownMembers||shelf.members,priorRankingObservation:previous,feedSnapshot:true,observationOnly:true,currentRankingObservation:true,members,observedAtUtc:snap.observedAtUTC,sourceUrl:snap.sourceUrl,observedCount:members.length,coverage:snap.coverage});}
+  root.dataset.currentAmazonRanks='ready';root.dataset.amazonRankingSourceDate='2026-10-23';
+ }catch(e){root.dataset.currentAmazonRanks='fallback';}
+ finally{clearTimeout(timer);}
+ return d;
+}
+
+const load=()=>assetPromise||(assetPromise=Promise.all(['/viewer/official-store-shelves.json?v=ranking-20261023','/viewer/amazon-observed-rankings-20261019.json','/viewer/amazon-observed-rankings-diff-20261019.json'].map(path=>fetch(path,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Shelf data unavailable: '+path);return r.json();}))).then(([d,observed,diff])=>{if(observed.schema!=='amazon_official_ranking_observation_v1'||diff.schema!=='amazon_official_ranking_diff_v1'||diff.baseSha256!==observed.sourceSha256||diff.singleInstantSnapshot!==false)throw Error('Unexpected ranking observation');for(const [id,media,title]of observedDefs){const base=observed.items.filter(x=>x.shelf===id).sort((a,b)=>a.officialRank-b.officialRank),later=diff.items.filter(x=>x.shelf===id).sort((a,b)=>a.officialRank-b.officialRank);if(base.length!==30||base.some((x,i)=>x.officialRank!==i+1||!x.asin||!x.title||!x.sourceUrl||!x.observedAtUtc)||later.some(x=>x.officialRank<31||x.officialRank>100||!x.asin||!x.title||!x.sourceUrl||x.observedWindowUtc?.length!==2))throw Error('Incomplete observed ranking: '+id);const members=[...base,...later],ranks=members.map(x=>x.officialRank);if(new Set(ranks).size!==members.length)throw Error('Repeated rank: '+id);d.collections.push({sectionKey:'amazon-observed:'+id,store:'amazon',mediaScope:media,title,sourceUrl:base[0].sourceUrl,observedAtUtc:base[0].observedAtUtc,observedCount:members.length,observationOnly:true,members});}return installCurrentAmazon(d).then(value=>asset=value);}));
 const choicesFor=c=>asset.collections.filter(x=>x.store===c.store&&(x.mediaScope===c.kind||x.mediaScope==='kindle_all')&&(!x.archivedFromPrimary||url.get('officialSection')===x.sectionKey));
 const dateShelf=x=>/:(?:landing:)?(?:new|preorder):/.test(x.sectionKey)||['新刊','新着','近日発売'].includes(x.approvedCategory);
 const normalChoice=(c,x)=>!dateShelf(x)&&!(c.store==='amazon'&&c.kind==='novel'&&x.sectionKey==='amazon-light-novel:new-on-amazon');
@@ -103,15 +141,17 @@ function observedResults(c,shelf,q,savedOffset){
  pref.offsets[c.scope]=offset;root.dataset.officialSection=shelf.sectionKey;root.dataset.officialResultCount=String(rows.length);root.dataset.officialProductResultCount=String(rows.length);root.dataset.officialNavigationResultCount='0';
  const ranges=[];for(const rank of missing){const last=ranges.at(-1);if(last&&last[1]+1===rank)last[1]=rank;else ranges.push([rank,rank]);}
  const gapText=ranges.map(([a,b])=>a===b?String(a):a+'～'+b).join(' / ');
+ if(shelf.currentRankingObservation){const note=el('p',undefined,'official-source-note amazon-ranking-coverage');note.append(el('span','ページ'),Object.assign(el('bdi',' 1 · '),{dir:'ltr'}),el('span','確認時の公式掲載順位 '),Object.assign(el('bdi',Math.min(...shelf.members.map(x=>x.officialRank))+'–'+Math.max(...shelf.members.map(x=>x.officialRank))+' / 100'),{dir:'ltr'}));host.append(note,el('p','確認日の公式ページに載っていた範囲を表示しています。表示件数はストア全体の総数ではありません。最新の掲載内容・条件は公式ページで確認してください。','official-source-note amazon-ranking-scope'));}
  const rankNote=el('p','順位は観測時点ごとの記録です。未収録: ','official-source-note');rankNote.append(missing.length?Object.assign(el('bdi',gapText),{dir:'ltr'}):el('span','なし'));host.append(rankNote);
  if(shelf.feedSnapshot){conditionNote(shelf);const count=el('p',undefined,'catalogue-count');count.append(Object.assign(el('bdi',rows.length+' / '+shelf.members.length),{dir:'ltr'}));host.append(count);root.dataset.feedObservedRecordCount=String(rows.length);}
+ if(shelf.currentRankingObservation){const details=el('details',undefined,'catalogue-source-details');details.append(el('summary','情報について'));for(const note of [...host.querySelectorAll(':scope > .official-source-note:not(.amazon-ranking-coverage)')])details.append(note);host.append(details);}
  host.append(pageSizeBar(c));const results=el('div',undefined,'catalogue-results');
  for(const m of rows.slice(offset,offset+size)){
   const prior=known.get(m.asin);let card;
   if(prior){
    card=cardFor(c,prior.p,{...prior.m,rank:m.officialRank,observedAtUtc:m.observedAtUtc},shelf);
    if(prior.p.title!==m.title){const note=el('p',(ByuCatalogue.ui[root.dataset.previewLang]?.source||'Source')+' · ');note.append(Object.assign(el('span',m.title),{lang:'ja',dir:'auto',translate:true}));card.querySelector('.catalogue-item-details')?.append(note);}
-  }else{card=observedCard(m);if(shelf.feedSnapshot){const t=el('time','取得日時：'+m.observedAtUtc,'official-observed-time');t.dateTime=m.observedAtUtc;card.querySelector('.official-source-note')?.replaceWith(t);}}
+  }else{card=observedCard(m);if(shelf.feedSnapshot){if(shelf.currentRankingObservation){const t=el('time',undefined,'official-observed-time');t.dateTime=m.observedAtUtc;t.append(el('span','取得日時：'),Object.assign(el('bdi',m.observedAtUtc),{dir:'ltr'}));card.querySelector('.official-source-note')?.replaceWith(t);}else{const t=el('time','取得日時：'+m.observedAtUtc,'official-observed-time');t.dateTime=m.observedAtUtc;card.querySelector('.official-source-note')?.replaceWith(t);}}}
   for(const time of card.querySelectorAll('time'))time.dir='ltr';card.dataset.asin=m.asin;card.dataset.originalProductUrl=m.productUrl;card.dataset.observedTitle=m.title;
   results.append(card);
  }
